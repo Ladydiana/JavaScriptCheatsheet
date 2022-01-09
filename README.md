@@ -7,6 +7,7 @@ Useful: https://developer.mozilla.org/en-US/docs/Web/JavaScript/
     + [Operations](#operations)
 - [Alerts & Prompts](#alerts--prompts)
 - [Conditional and logical operations](#conditional-and-logical-operations)
+- [Arrays](#arrays)
 
 
 --------------------------------
@@ -84,13 +85,17 @@ console.log(fruits.length) //2
 let first = fruits[0] // Apple
 let last = fruits[fruits.length - 1] // Banana
 
-//Loop over an Array
+// Loop over an Array
 fruits.forEach(function(item, index, array) {
   console.log(item, index)
 }) // Apple 0 // Banana 1
 
-//Add a item to the end of the array
-fruits.push('Orange') // ["Apple", "Banana", "Orange"];
-console.log(fruits) // (3) ['Apple', 'Banana', 'Orange']
+// Add a item to the end of the array
+fruits.push('Orange'); // ["Apple", "Banana", "Orange"];
+console.log(fruits); // (3) ['Apple', 'Banana', 'Orange']
 
+// Remove an item from the end of an Array
+let last = fruits.pop();
+console.log(fruits) // (2) ['Apple', 'Banana']
+console.log(last) // Orange
 ```
