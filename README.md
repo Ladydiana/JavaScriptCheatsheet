@@ -2,6 +2,12 @@
 
 Useful: https://developer.mozilla.org/en-US/docs/Web/JavaScript/
 
+- [Variables](#variables)
+    + [Definition](#definition)
+    + [Operations](#operations)
+    + [Alerts & Prompts](#alerts---prompts)
+
+
 --------------------------------
 # Variables
 
