@@ -6,6 +6,7 @@ Useful: https://developer.mozilla.org/en-US/docs/Web/JavaScript/
     + [Definition](#definition)
     + [Operations](#operations)
 - [Alerts & Prompts](#alerts--prompts)
+- [Conditional and logical operations](#conditional-and-logical-operations)
 
 
 --------------------------------
