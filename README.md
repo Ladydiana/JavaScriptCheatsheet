@@ -1,7 +1,8 @@
 # JavaScriptCheatsheet
 
-Useful: 	- https://developer.mozilla.org/en-US/docs/Web/JavaScript/
-			- https://www.w3schools.com/js/tryit.asp?filename=tryjs_editor
+Useful: 	
++ https://developer.mozilla.org/en-US/docs/Web/JavaScript/
++ https://www.w3schools.com/js/tryit.asp?filename=tryjs_editor
 
 - [Variables](#variables)
     + [Definition](#definition)
