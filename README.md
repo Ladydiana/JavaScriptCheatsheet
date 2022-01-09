@@ -74,3 +74,23 @@ if (age < 18 || (age <21 && country === "USA"))  {
 }
 
 ```
+
+# Arrays
+```javascript
+
+let fruits = ['Apple', 'Banana']
+console.log(fruits.length) //2
+
+let first = fruits[0] // Apple
+let last = fruits[fruits.length - 1] // Banana
+
+//Loop over an Array
+fruits.forEach(function(item, index, array) {
+  console.log(item, index)
+}) // Apple 0 // Banana 1
+
+//Add a item to the end of the array
+fruits.push('Orange') // ["Apple", "Banana", "Orange"];
+console.log(fruits) // (3) ['Apple', 'Banana', 'Orange']
+
+```
