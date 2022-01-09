@@ -1,9 +1,10 @@
 # JavaScriptCheatsheet
 
 Useful: 	
-+ https://developer.mozilla.org/en-US/docs/Web/JavaScript/
-+ https://www.w3schools.com/js/tryit.asp?filename=tryjs_editor
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/
+* https://www.w3schools.com/js/tryit.asp?filename=tryjs_editor
 
+TOC:
 - [Variables](#variables)
     + [Definition](#definition)
     + [Operations](#operations)
