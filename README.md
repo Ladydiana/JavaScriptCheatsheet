@@ -98,4 +98,17 @@ console.log(fruits); // (3) ['Apple', 'Banana', 'Orange']
 let last = fruits.pop();
 console.log(fruits) // (2) ['Apple', 'Banana']
 console.log(last) // Orange
+
+// Add an item to the beginning of an Array
+fruits.unshift('Strawberry') // add to the front
+
+// Remove an item from the beginning of an Array
+let first = fruits.shift();
+
+// Find the index of an item in the Array
+let pos = fruits.indexOf('Strawberry') // -1
+console.log(pos);
+
+pos = fruits.indexOf('Banana') // 1
+console.log(pos);
 ```
