@@ -15,7 +15,7 @@ let env = "Github";
 let repos = 42;		// Number
 let semaphore = true;	// Boolean
 let city = "Stockholm";	// String
-let country = "Sweden"
+let country = "Sweden";
 let a = 1;
 let b = 2;
 ```
@@ -26,4 +26,12 @@ let b = 2;
 // Operations
 let place = city + " " + country; //Stockholm Sweden
 let c = a + b; 	//3
+```
+
+### Alerts & Prompts
+```javascript
+let firstName = prompt("First name: ");
+let lastName = prompt("Last name: ");
+let fullName = firstName + " " + lastName;
+alert(fullName);
 ```
