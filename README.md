@@ -5,6 +5,7 @@ Useful: https://developer.mozilla.org/en-US/docs/Web/JavaScript/
 --------------------------------
 # Variables
 
+### Definition
 ```javascript
 // Variables
 let name = "Ladydiana";
