@@ -19,6 +19,7 @@ let project = "JavaScriptCheatsheet";
 let action = "publish";
 let env = "Github";
 let repos = 42;		// Number
+let age = 17;
 let semaphore = true;	// Boolean
 let city = "Stockholm";	// String
 let destinations = ["Porto", "Lisbon", "Vienna", "Bratislava", "Budapest"]; //Array
@@ -55,8 +56,20 @@ alert(fullName);
 
 # Conditional and logical operations
 ```javascript
-if (!fullName.trim()) {
-	alert("Something went wrong, please try again!");
+
+if (!firstName.trim()) {
+	alert("Please insert a valid first name!");
+}
+else {  if (!lastName.trim()) {
+			alert("Please insert a valid last name!");
+		}
+		else {
+				alert("Something went wrong, please try again!");
+		}
+}
+
+if (age < 18 || (age <21 && country === "USA"))  {
+  alert("You cannot drink here!");
 }
 
 ```
