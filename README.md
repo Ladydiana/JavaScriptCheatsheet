@@ -5,7 +5,7 @@ Useful: https://developer.mozilla.org/en-US/docs/Web/JavaScript/
 - [Variables](#variables)
     + [Definition](#definition)
     + [Operations](#operations)
-    + [Alerts & Prompts](#alerts---prompts)
+- [Alerts & Prompts](#alerts---prompts)
 
 
 --------------------------------
@@ -34,7 +34,7 @@ let place = city + " " + country; //Stockholm Sweden
 let c = a + b; 	//3
 ```
 
-### Alerts & Prompts
+# Alerts & Prompts
 ```javascript
 let firstName = prompt("First name: ");
 let lastName = prompt("Last name: ");
