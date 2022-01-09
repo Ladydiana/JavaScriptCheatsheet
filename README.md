@@ -21,9 +21,20 @@ let env = "Github";
 let repos = 42;		// Number
 let semaphore = true;	// Boolean
 let city = "Stockholm";	// String
+let destinations = ["Porto", "Lisbon", "Vienna", "Bratislava", "Budapest"]; //Array
+let next_travel = {
+	country: "Russia",
+	city: "Sankt Petersburg",
+	transport: "ferry",
+	price: 100,
+	duration: 5,
+	booked: false
+};	//Object
 let country = "Sweden";
 let a = 1;
 let b = 2;
+
+
 ```
 
 
