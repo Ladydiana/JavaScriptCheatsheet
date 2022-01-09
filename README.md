@@ -52,3 +52,11 @@ let lastName = prompt("Last name: ");
 let fullName = firstName + " " + lastName;
 alert(fullName);
 ```
+
+# Conditional and logical operations
+```javascript
+if (!fullName.trim()) {
+	alert("Something went wrong, please try again!");
+}
+
+```
