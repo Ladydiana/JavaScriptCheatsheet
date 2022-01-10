@@ -16,6 +16,7 @@ TOC:
     + [forEach](#forEach)
 	+ [do while](#do-while)
 	+ [for](#for)
+- [Dates](#dates)
 
 
 --------------------------------
@@ -173,4 +174,17 @@ do {
 for (let i = 0; i < 10; i++) {
   console.log("i is " + i);
 }
+```
+
+# Dates
+```javascript
+let now = new Date();
+now.getMinutes(); 
+now.getHours(); 
+now.getDate(); 
+now.getDay(); 
+now.getMonth(); 
+now.getFullYear();
+
+console.log(Date.parse("01 Jan 2025 00:00:00 GMT"));
 ```

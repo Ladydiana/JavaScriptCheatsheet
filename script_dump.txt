@@ -121,6 +121,19 @@ do {
 for (let i = 0; i < 10; i++) {
   console.log("i is " + i);
 }
+
+//Dates
+let now = new Date();
+now.getMinutes(); 
+now.getHours(); 
+now.getDate(); 
+now.getDay(); 
+now.getMonth(); 
+now.getFullYear();
+
+let d = Date.parse("01 Jan 2025 00:00:00 GMT")
+console.log(d);
+console.log(d.toString())
 </script>
 
 </body>
