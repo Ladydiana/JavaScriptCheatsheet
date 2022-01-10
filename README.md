@@ -139,6 +139,7 @@ console.log(removedItems) // (2) ['Turnip', 'Radish']
 // Accessing array elements
 console.log(vegetables[0]) // Cabbage
 console.log(vegetables[1]) // Carrot
+```
 
 # Loops
 
@@ -152,8 +153,18 @@ while (i < 10) {
 ```
 
 ### forEach
+```javascript
+fruits.forEach(function(fruit) {
+  console.log(fruit)
+})
+```
 
 ### do while
+```javascript
+
+```
 
 ### for
+```javascript
+
 ```
