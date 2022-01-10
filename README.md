@@ -161,7 +161,11 @@ fruits.forEach(function(fruit) {
 
 ### do while
 ```javascript
-
+i = 0;
+do {
+  console.log(i);
+  i = i + 1;
+} while(i < 10)
 ```
 
 ### for
