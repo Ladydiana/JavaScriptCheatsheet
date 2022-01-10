@@ -11,6 +11,11 @@ TOC:
 - [Alerts & Prompts](#alerts--prompts)
 - [Conditional and logical operations](#conditional-and-logical-operations)
 - [Arrays](#arrays)
+- [Loops](#loops)
+    + [while](#while)
+    + [forEach](#forEach)
+	+ [do while](#do-while)
+	+ [for](#for)
 
 
 --------------------------------
@@ -135,4 +140,20 @@ console.log(removedItems) // (2) ['Turnip', 'Radish']
 console.log(vegetables[0]) // Cabbage
 console.log(vegetables[1]) // Carrot
 
+# Loops
+
+### While
+```javascript
+let i = 0;
+while (i < 10) {
+  console.log(i);
+  i = i + 1;
+}
+```
+
+### forEach
+
+### do while
+
+### for
 ```
