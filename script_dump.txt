@@ -196,6 +196,13 @@ function init() {
 }
 init();
 
+// Selectors
+let h2 = document.querySelector("h2"); //Returns the first element (if any) on the page matching the selector.
+h2.innerHTML = " JavaScriptCheatsheet ";
+document.querySelector("p").innerHTML = "README <br> script_dump.txt"; 
+
+document.getElementById("demo").innerHTML = "This is a demo."; // Returns the element by id
+
 
 </script>
 

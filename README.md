@@ -261,7 +261,15 @@ init();
 
 # Selectors
 ```javascript
+let h2 = document.querySelector("h2"); //Returns the first element (if any) on the page matching the selector.
+h2.innerHTML = " JavaScriptCheatsheet ";
 
+let p = document.querySelector("p");
+p.innerHTML = "README <br> script_dump.txt"
+// Adding a class to the element
+p.classList.add("content");
+
+document.getElementById("demo").innerHTML = "This is a demo."; // Returns the element by id
 ```
 
 # Events
