@@ -134,6 +134,46 @@ now.getFullYear();
 let d = Date.parse("01 Jan 2025 00:00:00 GMT")
 console.log(d);
 console.log(d.toString())
+
+
+let o1 = new Object()
+let o2 = new Object(undefined)
+let o3 = new Object(null)
+let o4 = new Object(true) // // equivalent to o = new Boolean(true)
+
+let user = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 31,
+  greet: function () {
+    alert("Welcome!");
+  },
+};
+
+alert(user.firstName); // or alert(user["firstName"]);
+
+// Adding a property
+user.gender = "male";
+
+let students = [
+  {
+    firstName: "Jack",
+    lastName: "Robinson",
+  },
+  {
+    firstName: "Dorothy",
+    lastName: "Williams",
+  },
+];
+
+students.forEach(function (student, index) {
+  for (let what in student) {
+    alert(what + " is " + student[what]);
+  }
+});
+
+
+
 </script>
 
 </body>

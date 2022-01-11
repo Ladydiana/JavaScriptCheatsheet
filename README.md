@@ -207,8 +207,26 @@ let user = {
 
 alert(user.firstName); // or alert(user["firstName"]);
 
-// adding a property
+// Adding a property
 user.gender = "male";
+
+let students = [
+  {
+    firstName: "Jack",
+    lastName: "Robinson",
+  },
+  {
+    firstName: "Dorothy",
+    lastName: "Williams",
+  },
+];
+
+// Enumerating
+students.forEach(function (student, index) {
+  for (let what in student) {
+    alert(what + " is " + student[what]);
+  }
+});
 ```
 
 # Functions
