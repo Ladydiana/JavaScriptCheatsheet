@@ -17,6 +17,10 @@ TOC:
 	+ [do while](#do-while)
 	+ [for](#for)
 - [Dates](#dates)
+- [Objects](#objects)
+- [Functions](#functions)
+- [Selectors](#selectors)
+- [Events](#events)
 
 
 --------------------------------
@@ -211,25 +215,46 @@ alert(user.firstName); // or alert(user["firstName"]);
 user.gender = "male";
 
 let students = [
-  {
-    firstName: "Jack",
-    lastName: "Robinson",
-  },
-  {
-    firstName: "Dorothy",
-    lastName: "Williams",
-  },
+	{
+		firstName: "Jack",
+		lastName: "Robinson",
+	},
+	{
+		firstName: "Dorothy",
+		lastName: "Williams",
+	},
 ];
 
 // Enumerating
 students.forEach(function (student, index) {
-  for (let what in student) {
-    alert(what + " is " + student[what]);
-  }
+	for (let what in student) {
+		alert(what + " is " + student[what]);
+	}
 });
 ```
 
 # Functions
+```javascript
+function fullName(firstName, lastName) {
+	alert(firstName + " " + lastName);
+}
+
+function fullName2(firstName, lastName) {
+	return(firstName + " " + lastName);
+}
+
+firstName = prompt("What's your first name?");
+lastName = prompt("What's your last name?");
+fullName1(firstName, lastName);
+let getname = fullName2(firstName, lastName);
+```
+
+# Selectors
+```javascript
+
+```
+
+# Events
 ```javascript
 
 ```

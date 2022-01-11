@@ -173,6 +173,19 @@ students.forEach(function (student, index) {
 });
 
 
+function fullName1(firstName, lastName) {
+	alert(firstName + " " + lastName);
+}
+
+function fullName2(firstName, lastName) {
+	return(firstName + " " + lastName);
+}
+
+firstName = prompt("What's your first name?");
+lastName = prompt("What's your last name?");
+fullName1(firstName, lastName);
+let getname = fullName2(firstName, lastName);
+
 
 </script>
 
