@@ -247,6 +247,16 @@ firstName = prompt("What's your first name?");
 lastName = prompt("What's your last name?");
 fullName1(firstName, lastName);
 let getname = fullName2(firstName, lastName);
+
+// Closures
+function init() {
+  var name = 'Mozilla'; // name is a local variable created by init
+  function displayName() { // displayName() is the inner function, a closure
+    alert(name); // use variable declared in the parent function
+  }
+  displayName();
+}
+init();
 ```
 
 # Selectors
