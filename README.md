@@ -188,3 +188,30 @@ now.getFullYear();
 
 console.log(Date.parse("01 Jan 2025 00:00:00 GMT"));
 ```
+
+# Objects
+```javascript
+let o1 = new Object()
+let o2 = new Object(undefined)
+let o3 = new Object(null)
+let o4 = new Object(true) // // equivalent to o = new Boolean(true)
+
+let user = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 31,
+  greet: function () {
+    alert("Welcome!");
+  },
+};
+
+alert(user.firstName); // or alert(user["firstName"]);
+
+// adding a property
+user.gender = "male";
+```
+
+# Functions
+```javascript
+
+```
