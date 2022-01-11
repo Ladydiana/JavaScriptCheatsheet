@@ -273,6 +273,7 @@ document.getElementById("demo").innerHTML = "This is a demo."; // Returns the el
 ```
 
 # Events
+```javascript
 // Function to change the content of t2
 function modifyText() {
   const t2 = document.getElementById("t2");
