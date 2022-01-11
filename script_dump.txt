@@ -8,6 +8,13 @@
 
 <p id="demo"></p>
 
+<br><br><br>
+<table id="outside">
+  <tr><td id="t1">one</td></tr>
+  <tr><td id="t2">two</td></tr>
+</table>
+
+
 <script>
 let name = "Ladydiana";
 let project = "JavaScriptCheatsheet";
@@ -153,56 +160,74 @@ let user = {
 alert(user.firstName); // or alert(user["firstName"]);
 
 // Adding a property
-user.gender = "male";
+// user.gender = "male";
+// 
+// let students = [
+//   {
+//     firstName: "Jack",
+//     lastName: "Robinson",
+//   },
+//   {
+//     firstName: "Dorothy",
+//     lastName: "Williams",
+//   },
+// ];
+// 
+// students.forEach(function (student, index) {
+//   for (let what in student) {
+//     alert(what + " is " + student[what]);
+//   }
+// });
+// 
+// 
+// function fullName1(firstName, lastName) {
+// 	alert(firstName + " " + lastName);
+// }
+// 
+// function fullName2(firstName, lastName) {
+// 	return(firstName + " " + lastName);
+// }
+// 
+// firstName = prompt("What's your first name?");
+// lastName = prompt("What's your last name?");
+// fullName1(firstName, lastName);
+// let getname = fullName2(firstName, lastName);
+// 
+// // Closures
+// function init() {
+//   var name = 'Mozilla'; // name is a local variable created by init
+//   function displayName() { // displayName() is the inner function, a closure
+//     alert(name); // use variable declared in the parent function
+//   }
+//   displayName();
+// }
+// init();
 
-let students = [
-  {
-    firstName: "Jack",
-    lastName: "Robinson",
-  },
-  {
-    firstName: "Dorothy",
-    lastName: "Williams",
-  },
-];
-
-students.forEach(function (student, index) {
-  for (let what in student) {
-    alert(what + " is " + student[what]);
-  }
-});
-
-
-function fullName1(firstName, lastName) {
-	alert(firstName + " " + lastName);
-}
-
-function fullName2(firstName, lastName) {
-	return(firstName + " " + lastName);
-}
-
-firstName = prompt("What's your first name?");
-lastName = prompt("What's your last name?");
-fullName1(firstName, lastName);
-let getname = fullName2(firstName, lastName);
-
-// Closures
-function init() {
-  var name = 'Mozilla'; // name is a local variable created by init
-  function displayName() { // displayName() is the inner function, a closure
-    alert(name); // use variable declared in the parent function
-  }
-  displayName();
-}
-init();
 
 // Selectors
 let h2 = document.querySelector("h2"); //Returns the first element (if any) on the page matching the selector.
 h2.innerHTML = " JavaScriptCheatsheet ";
-document.querySelector("p").innerHTML = "README <br> script_dump.txt"; 
+let p = document.querySelector("p");
+p.innerHTML = "README <br> script_dump.txt"
+p.classList.add("content");
 
 document.getElementById("demo").innerHTML = "This is a demo."; // Returns the element by id
 
+
+
+// Function to change the content of t2
+function modifyText() {
+  const t2 = document.getElementById("t2");
+  if (t2.firstChild.nodeValue == "three") {
+    t2.firstChild.nodeValue = "two";
+  } else {
+    t2.firstChild.nodeValue = "three";
+  }
+}
+
+// Add event listener to table
+const el = document.getElementById("outside");
+el.addEventListener("click", modifyText, false);
 
 </script>
 
