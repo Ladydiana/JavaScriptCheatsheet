@@ -163,6 +163,18 @@ console.log(removedItems) // (2) ['Turnip', 'Radish']
 // Accessing array elements
 console.log(vegetables[0]) // Cabbage
 console.log(vegetables[1]) // Carrot
+
+// Array spread
+const cars2= [...cars, oneMoreCar ]; 
+
+// Array destructuring     (used with React state)  
+const [firstCar, secondCar]= cars;
+const [firstCar, ...otherCars]= cars;
+
+function doSth([firstElem, secondElem, ...others])  
+// combine array destructuring with object destructuring
+function doSth([{ someProp, someOtherProp, ...otherProps}, secondElem, ... others ])
+
 ```
 
 # Loops
