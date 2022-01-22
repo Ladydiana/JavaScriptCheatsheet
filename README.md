@@ -21,6 +21,7 @@ TOC:
 - [Functions](#functions)
 - [Selectors](#selectors)
 - [Events](#events)
+- [Callbacks](#callbacks)
 
 
 --------------------------------
@@ -287,4 +288,18 @@ function modifyText() {
 // Add event listener to table
 const el = document.getElementById("outside");
 el.addEventListener("click", modifyText, false);
+```
+
+# Callbacks
+```javascript
+function compareNumbersCB(a,b){   // a callback!
+   if(a<b) { return 1; }   
+   if(a>b) return -1;   // no need for {} if only one statement
+   return 0;            // no need for else after return  
+}               
+[6,1,5].sort(compareNumbersCB)    // pass the callback!
+
+function compareCarsCB(car1, car2){ return car1.doors-car2.doors; } 
+cars.sort(compareCarsCB)
+
 ```
