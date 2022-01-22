@@ -86,9 +86,27 @@ else {  if (!lastName.trim()) {
 
 if (age < 18 || (age <21 && country === "USA"))  {
   alert("You cannot drink here!");
+  
+//condition ? ifTrue : ifFalse     is a complete if/else replacement
+1+(42?9:0)  // 10
+42?(""?false:3.1415):0  // 3.1415
+
 }
 
 ```
+
+===    !==     	do not convert               1==="1"    → false
+
+==     !=       attempt conversion           1== "1"    → true
+
+For many other operations it’s harder to escape conversion!
+
+1+true → 2
+
+1+"2"  → "12"
+
+1+Number.parseInt("2")    →   3
+
 
 # Arrays
 ```javascript
