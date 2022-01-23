@@ -10,6 +10,7 @@ TOC:
     + [Operations](#operations)
 - [Alerts & Prompts](#alerts--prompts)
 - [Conditional and logical operations](#conditional-and-logical-operations)
+	+ [Special Rules and Conversion](#special-rules-and-conversion)
 - [Arrays](#arrays)
 - [Loops](#loops)
     + [while](#while)
@@ -94,6 +95,8 @@ if (age < 18 || (age <21 && country === "USA"))  {
 }
 
 ```
+
+## Special Rules and Conversion
 
 ===    !==     	do not convert               1==="1"    → false
 
