@@ -24,7 +24,9 @@ TOC:
 - [Selectors](#selectors)
 - [Events](#events)
 - [Callbacks](#callbacks)
-	+[Definition](#definition)
+	+ [Definition](#definition)
+	+ [Callback checklist](#callback-checklist)
+		*[Array.sort](#arraysort)
 
 
 --------------------------------
@@ -342,6 +344,8 @@ cars.sort(compareCarsCB)
 
 ## Callback checklist
 ### Array.sort
+| Question 												| Answer |
+| -----------------------------------------------------	| ------ |
 | How to pass the callback?     						| array.sort(CB) |  
 | Other params needed besides the callback? 			| No |
 | What does array.sort(CB) return?          			| Same array! Sorted |
