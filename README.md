@@ -30,6 +30,7 @@ TOC:
 		* [Array.filter](#arrayfilter)
 		* [Array.map](#arraymap)
 		* [Array.reduce](#arrayreduce)
+		* [setTimeout  / setInterval](#settimeout----setinterval)
 
 
 --------------------------------
@@ -367,8 +368,8 @@ cars.sort(compareCarsCB)
 | -----------------------------------------------------	| ------ |
 | How to pass the callback?     						| array.filter(CB) |  
 | Other params needed besides the callback? 			| No |
-| What does array.sort(CB) return?          			| New array, with only some elements kept |
-| When does array.sort(CB) return?          			| After all array elements are visited |
+| What does array.filter(CB) return?          			| New array, with only some elements kept |
+| When does array.filter(CB) return?          			| After all array elements are visited |
 | Who calls the callback, and sends parameters?       	| filter() |
 | Role (and usual name?) of callback parameters      	| element    (optional:  index, array) |
 | What is the callback expected to return?       		| true→ keep in returned array,    false→ don’t |
@@ -386,8 +387,8 @@ function hasAtLeastFourDoorsCB(car) { return car.doors > 3; }
 | -----------------------------------------------------	| ------ |
 | How to pass the callback?     						| array.map(CB) |  
 | Other params needed besides the callback? 			| No |
-| What does array.sort(CB) return?          			| New array, with all elements transformed by the CB |
-| When does array.sort(CB) return?          			| After all array elements are visited |
+| What does array.map(CB) return?          			| New array, with all elements transformed by the CB |
+| When does array.map(CB) return?          			| After all array elements are visited |
 | Who calls the callback, and sends parameters?       	| map() |
 | Role (and usual name?) of callback parameters      	| element    (optional:  index, array) |
 | What is the callback expected to return?       		| Element in resulting array |
@@ -406,8 +407,8 @@ function carToDoorsCB(car) { return car.doors; }
 | -----------------------------------------------------	| ------ |
 | How to pass the callback?     						| array.reduce(CB, initialAccumulator)  |  
 | Other params needed besides the callback? 			| Yes |
-| What does array.sort(CB) return?          			| Final value of accumulator, after applying CB to all elements|
-| When does array.sort(CB) return?          			| After all array elements are visited |
+| What does array.reduce(CB) return?          			| Final value of accumulator, after applying CB to all elements|
+| When does array.reduce(CB) return?          			| After all array elements are visited |
 | Who calls the callback, and sends parameters?       	| reduce() |
 | Role (and usual name?) of callback parameters      	| accumulator, element (optional:  index, array) |
 | What is the callback expected to return?       		| New accumulator |
@@ -420,3 +421,26 @@ function carToDoorsCB(car) { return car.doors; }
 function sumCarDoorsReducerCB(accumulator, car) { return accumulator + car.doors; }
 function sumReducerCB(accumulator, element) { return accumulator + element; }        // general!
 ```
+
+### setTimeout  / setInterval
+!!! asynchronous!
+| Question 												| Answer |
+| -----------------------------------------------------	| ------ |
+| How to pass the callback?     						| setTimeout(ACB, millis) |  
+| Other params needed besides the callback? 			| Optional, default zero |
+| What does setTimeout(ACB, millis) return?          	| setTimeout(ACB, millis)|
+| When does setTimeout(ACB, millis) return?          	| immediately |
+| Who calls the callback, and sends parameters?       	| browser timer / node.js timer |
+| Role (and usual name?) of callback parameters      	| none |
+| What is the callback expected to return?       		| nothing |
+| When is the callback called?     						| When millis has passed |
+| Is the callback called once? Or repeatedly?       	| Once  (see setInterval for repeated regularly) |
+| What is the role of the callback?   					| Do something later  / without disturbing the current execution flow |
+| Example callback names                 				| doLaterACB |
+
+```javascript
+function doAfter2SecACB(){console.log("2 seconds passed"); }
+setTimeout(doAfter2SecACB, 2000);
+```
+JS functions run to completion. 
+setTimeout(ACB, 0) will execute ACB some time *after* the current function completes!
