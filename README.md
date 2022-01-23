@@ -10,6 +10,7 @@ TOC:
     + [Operations](#operations)
 - [Alerts & Prompts](#alerts--prompts)
 - [Conditional and logical operations](#conditional-and-logical-operations)
+	+ [Operators](#operators)
 	+ [Special Rules and Conversion](#special-rules-and-conversion)
 - [Arrays](#arrays)
 - [Loops](#loops)
@@ -72,6 +73,7 @@ alert(fullName);
 ```
 
 # Conditional and logical operations
+## Operators
 ```javascript
 
 if (!firstName.trim()) {
