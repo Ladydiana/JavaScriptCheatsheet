@@ -24,6 +24,7 @@ TOC:
 - [Selectors](#selectors)
 - [Events](#events)
 - [Callbacks](#callbacks)
+	+[Definition](#definition)
 
 
 --------------------------------
@@ -326,6 +327,7 @@ el.addEventListener("click", modifyText, false);
 ```
 
 # Callbacks
+## Definition
 ```javascript
 function compareNumbersCB(a,b){   // a callback!
    if(a<b) { return 1; }   
@@ -336,5 +338,19 @@ function compareNumbersCB(a,b){   // a callback!
 
 function compareCarsCB(car1, car2){ return car1.doors-car2.doors; } 
 cars.sort(compareCarsCB)
-
 ```
+
+## Callback checklist
+### Array.sort
+| How to pass the callback?     						| array.sort(CB) |  
+| Other params needed besides the callback? 			| No |
+| What does array.sort(CB) return?          			| Same array! Sorted |
+| When does array.sort(CB) return?          			| When array is sorted  // this may seem like a stupid question, but there are no stupid questions |
+| Who calls the callback, and sends parameters?       	| sort() execution |
+| Role (and usual name?) of callback parameters      	| elem1, elem2  for comparison |
+| What is the callback expected to return?       		| <0 → keep order,     >0 → reverse,     0 equal |
+| When is the callback called?     						| When sort needs a comparison |
+| Is the callback called once? Or repeatedly?       	| Zero or more times |
+| What is the role of the callback?   					| Comparator |
+| Example callback names                 				| compareCarsCB |
+
