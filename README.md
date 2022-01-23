@@ -31,7 +31,7 @@ TOC:
 		* [Array.map](#arraymap)
 		* [Array.reduce](#arrayreduce)
 		* [setTimeout  / setInterval](#settimeout---setinterval)
-		* [Map-Reduce](#map---reduce)
+		* [Map-Reduce](#map-reduce)
 
 
 --------------------------------
