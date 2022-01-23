@@ -30,7 +30,7 @@ TOC:
 		* [Array.filter](#arrayfilter)
 		* [Array.map](#arraymap)
 		* [Array.reduce](#arrayreduce)
-		* [setTimeout  / setInterval](#settimeout----setinterval)
+		* [setTimeout  / setInterval](#settimeout---setinterval)
 
 
 --------------------------------
