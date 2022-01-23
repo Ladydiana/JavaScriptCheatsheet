@@ -26,7 +26,8 @@ TOC:
 - [Callbacks](#callbacks)
 	+ [Definition](#definition)
 	+ [Callback checklist](#callback-checklist)
-		*[Array.sort](#arraysort)
+		* [Array.sort](#arraysort)
+		* [Array.filter](#arrayfilter)
 
 
 --------------------------------
@@ -343,6 +344,7 @@ cars.sort(compareCarsCB)
 ```
 
 ## Callback checklist
+
 ### Array.sort
 | Question 												| Answer |
 | -----------------------------------------------------	| ------ |
@@ -358,3 +360,23 @@ cars.sort(compareCarsCB)
 | What is the role of the callback?   					| Comparator |
 | Example callback names                 				| compareCarsCB |
 
+### Array.filter
+| Question 												| Answer |
+| -----------------------------------------------------	| ------ |
+| Question 												| Answer |
+| -----------------------------------------------------	| ------ |
+| How to pass the callback?     						| array.filter(CB) |  
+| Other params needed besides the callback? 			| No |
+| What does array.sort(CB) return?          			| New array, with only some elements kept |
+| When does array.sort(CB) return?          			| After all array elements are visited |
+| Who calls the callback, and sends parameters?       	| filter() |
+| Role (and usual name?) of callback parameters      	| element    (optional:  index, array) |
+| What is the callback expected to return?       		| true→ keep in returned array,    false→ don’t |
+| When is the callback called?     						| Once per element, to decide whether to keep in result |
+| Is the callback called once? Or repeatedly?       	| Once per element |
+| What is the role of the callback?   					| Tester |
+| Example callback names                 				| testCarCB,  hasAtLeastFourDoorsCB |
+
+``` javascript
+function hasAtLeastFourDoorsCB(car) { return car.doors > 3; }
+```
