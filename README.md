@@ -29,6 +29,7 @@ TOC:
 		* [Array.sort](#arraysort)
 		* [Array.filter](#arrayfilter)
 		* [Array.map](#arraymap)
+		* [Array.reduce](#arrayreduce)
 
 
 --------------------------------
@@ -398,4 +399,24 @@ function hasAtLeastFourDoorsCB(car) { return car.doors > 3; }
 ``` javascript
 function carToTextCB(car) { return car.make+" "+car.model; }
 function carToDoorsCB(car) { return car.doors; }
+```
+
+### Array.reduce
+| Question 												| Answer |
+| -----------------------------------------------------	| ------ |
+| How to pass the callback?     						| array.reduce(CB, initialAccumulator)  |  
+| Other params needed besides the callback? 			| Yes |
+| What does array.sort(CB) return?          			| Final value of accumulator, after applying CB to all elements|
+| When does array.sort(CB) return?          			| After all array elements are visited |
+| Who calls the callback, and sends parameters?       	| reduce() |
+| Role (and usual name?) of callback parameters      	| accumulator, element (optional:  index, array) |
+| What is the callback expected to return?       		| New accumulator |
+| When is the callback called?     						| Once per element |
+| Is the callback called once? Or repeatedly?       	| Once per element |
+| What is the role of the callback?   					| Reducer |
+| Example callback names                 				| sumReducerCB , sumCarDoorsReducerCB |
+
+``` javascript
+function sumCarDoorsReducerCB(accumulator, car) { return accumulator + car.doors; }
+function sumReducerCB(accumulator, element) { return accumulator + element; }        // general!
 ```
