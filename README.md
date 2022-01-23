@@ -31,6 +31,7 @@ TOC:
 		* [Array.map](#arraymap)
 		* [Array.reduce](#arrayreduce)
 		* [setTimeout  / setInterval](#settimeout---setinterval)
+		* [Map-Reduce](#map---reduce)
 
 
 --------------------------------
@@ -444,3 +445,26 @@ setTimeout(doAfter2SecACB, 2000);
 ```
 JS functions run to completion. 
 setTimeout(ACB, 0) will execute ACB some time *after* the current function completes!
+
+### Map-Reduce
+Just reduce
+```javascript       
+cars.reduce(sumCarDoorsReducerCB, 0)
+```
+map-reduce      
+```javascript 
+cars.map(car2doorsCB).reduce(sumReducerCB, 0)
+```
+
+filter and map can be written with reduce:
+```javascript 
+function myMap(array, transformer){ 
+   function transformReducerCB(acc, elem){  return [...acc, transformer(elem)];  } 
+   return array.reduce(transformReducerCB, []);   // an array as accumulator! 
+}
+
+function myFilter(array, tester){                   // no need for else after return
+   function keepReducerCB(acc, elem){ if(tester(elem)) return [...acc, elem]; return acc; }
+   return array.reduce(keepReducerCB, []);        // an array as accumulator! 
+}
+```
