@@ -28,6 +28,7 @@ TOC:
 	+ [Callback checklist](#callback-checklist)
 		* [Array.sort](#arraysort)
 		* [Array.filter](#arrayfilter)
+		* [Array.map](#arraymap)
 
 
 --------------------------------
@@ -363,8 +364,6 @@ cars.sort(compareCarsCB)
 ### Array.filter
 | Question 												| Answer |
 | -----------------------------------------------------	| ------ |
-| Question 												| Answer |
-| -----------------------------------------------------	| ------ |
 | How to pass the callback?     						| array.filter(CB) |  
 | Other params needed besides the callback? 			| No |
 | What does array.sort(CB) return?          			| New array, with only some elements kept |
@@ -379,4 +378,24 @@ cars.sort(compareCarsCB)
 
 ``` javascript
 function hasAtLeastFourDoorsCB(car) { return car.doors > 3; }
+```
+
+### Array.map
+| Question 												| Answer |
+| -----------------------------------------------------	| ------ |
+| How to pass the callback?     						| array.map(CB) |  
+| Other params needed besides the callback? 			| No |
+| What does array.sort(CB) return?          			| New array, with all elements transformed by the CB |
+| When does array.sort(CB) return?          			| After all array elements are visited |
+| Who calls the callback, and sends parameters?       	| map() |
+| Role (and usual name?) of callback parameters      	| element    (optional:  index, array) |
+| What is the callback expected to return?       		| Element in resulting array |
+| When is the callback called?     						| Once per element |
+| Is the callback called once? Or repeatedly?       	| Once per element |
+| What is the role of the callback?   					| Transformer |
+| Example callback names                 				| car2TextCB  , car2DoorsCB |
+
+``` javascript
+function carToTextCB(car) { return car.make+" "+car.model; }
+function carToDoorsCB(car) { return car.doors; }
 ```
