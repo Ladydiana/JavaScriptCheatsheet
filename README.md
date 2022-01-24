@@ -32,6 +32,8 @@ Contents:
 		* [Array.reduce](#arrayreduce)
 		* [setTimeout  / setInterval](#settimeout---setinterval)
 		* [Map-Reduce](#map-reduce)
+- [Custom components](#custom-component)
+
 
 
 --------------------------------
@@ -468,3 +470,36 @@ function myFilter(array, tester){                   // no need for else after re
    return array.reduce(keepReducerCB, []);        // an array as accumulator! 
 }
 ```
+
+## Custom components
+!!! ACB !!!
+```javascript
+function MyComponent(props){
+  return (     // return alone on a line returns undefined!
+<div>
+   <button>click me</button>
+   <input placeholder={props.holder}/>
+   <select>
+<option>My way</option>
+<option>The highway</option>
+  </select>    
+</div>
+  );
+}
+
+function MyComponent2(props){
+  return <div>
+     <button>click me</button>
+      <input placeholder={props.holder}/>
+      <select>
+   <option>My way</option>
+   <option>The highway</option>
+      </select> 
+   </div> ;
+}
+```
+The MyComponent function is called a functional custom component.
+
+Name must begin with a capital letter which is unusual in JavaScript/C/Java coding conventions.
+
+ 
