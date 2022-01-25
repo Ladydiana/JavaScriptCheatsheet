@@ -445,8 +445,8 @@ function sumReducerCB(accumulator, element) { return accumulator + element; }   
 function doAfter2SecACB(){console.log("2 seconds passed"); }
 setTimeout(doAfter2SecACB, 2000);
 ```
-JS functions run to completion. 
-setTimeout(ACB, 0) will execute ACB some time *after* the current function completes!
+:checkered_flag: **JS functions run to completion.** 
+:checkered_flag: **setTimeout(ACB, 0) will execute ACB some time *after* the current function completes!**
 
 ### Map-Reduce
 Just reduce
@@ -498,8 +498,8 @@ function MyComponent2(props){
    </div> ;
 }
 ```
-:checkered_flag: The MyComponent function is called a functional custom component.
+:checkered_flag: **The MyComponent function is called a functional custom component.**
 
-:checkered_flag: Name must begin with a capital letter which is unusual in JavaScript/C/Java coding conventions.
+:checkered_flag: **Name must begin with a capital letter which is unusual in JavaScript/C/Java coding conventions.**
 
  
