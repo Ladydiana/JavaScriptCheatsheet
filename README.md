@@ -498,8 +498,8 @@ function MyComponent2(props){
    </div> ;
 }
 ```
-The MyComponent function is called a functional custom component.
+<mark>The MyComponent function is called a functional custom component.</mark>
 
-Name must begin with a capital letter which is unusual in JavaScript/C/Java coding conventions.
+==Name must begin with a capital letter which is unusual in JavaScript/C/Java coding conventions.==
 
  
