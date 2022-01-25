@@ -32,7 +32,7 @@ Contents:
 		* [Array.reduce](#arrayreduce)
 		* [setTimeout  / setInterval](#settimeout---setinterval)
 		* [Map-Reduce](#map-reduce)
-- [Custom components](#custom-component)
+- [Custom components](#custom-components)
 
 
 
@@ -498,8 +498,8 @@ function MyComponent2(props){
    </div> ;
 }
 ```
-<mark>The MyComponent function is called a functional custom component.</mark>
+:checkered_flag: The MyComponent function is called a functional custom component.
 
-==Name must begin with a capital letter which is unusual in JavaScript/C/Java coding conventions.==
+:checkered_flag: Name must begin with a capital letter which is unusual in JavaScript/C/Java coding conventions.
 
  
