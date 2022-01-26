@@ -33,6 +33,7 @@ Contents:
 		* [setTimeout  / setInterval](#settimeout---setinterval)
 		* [Map-Reduce](#map-reduce)
 - [Custom components](#custom-components)
+- [Inline Javascript](#inline-javascript)
 
 
 
@@ -446,6 +447,7 @@ function doAfter2SecACB(){console.log("2 seconds passed"); }
 setTimeout(doAfter2SecACB, 2000);
 ```
 :checkered_flag: **JS functions run to completion.** 
+
 :checkered_flag: **setTimeout(ACB, 0) will execute ACB some time *after* the current function completes!**
 
 ### Map-Reduce
@@ -472,7 +474,7 @@ function myFilter(array, tester){                   // no need for else after re
 ```
 
 ## Custom components
-!!! ACB !!!
+**!!! ACB !!!**
 ```javascript
 function MyComponent(props){
   return (     // return alone on a line returns undefined!
@@ -502,4 +504,8 @@ function MyComponent2(props){
 
 :checkered_flag: **Name must begin with a capital letter which is unusual in JavaScript/C/Java coding conventions.**
 
+## Inline Javascript
+```javascript
+<td class="number-right">{Number(menuPrice(2000/50).toFixed(2)}</td>
+```
  
