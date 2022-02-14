@@ -34,6 +34,7 @@ Contents:
 		* [Map-Reduce](#map-reduce)
 - [Custom components](#custom-components)
 - [Inline Javascript](#inline-javascript)
+- [Create Random ID](#create-random-id)
 
 
 
@@ -509,3 +510,19 @@ function MyComponent2(props){
 <td class="number-right">{Number(menuPrice(2000/50).toFixed(2)}</td>
 ```
  
+ 
+## Create random ID
+```javascript
+function generateID (){
+        return Math.random().toString(36).slice(2);
+     };
+
+
+const UID = generateID();
+const textarea = "textarea" + UID;
+const seeM = "seeMore" + UID;
+```
+```html
+<a id={seeM} onClick={toggleSeeMore} href="javascript:void(0);">See More</a>
+```
+
