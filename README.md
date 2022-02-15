@@ -38,7 +38,8 @@ Contents:
 - [Web APIs](#web-apis)
 	+ [Synchronous Web API access](#synchronous-web-api-access)
 	+ [Asynchronous Web API access](#asynchronous-web-api-access)
-
+	+ [The Callback Pyramid of Doom](#the-callback-pyramid-of-doom)
+	+ [Promises](#promises)
 
 --------------------------------
 # Variables
@@ -554,4 +555,46 @@ getDataFromAPI("http://api.server", apiParameters	, function successACB(data){ .
 
 :bulb: The advantage is that getDataFromAPI returns immediately so the UI (browser tab) is not frozen.
 
-Returns immediately=  just makes a plan that when the web API will return successCallbackACB will be invoked if all goes OK and  errorCallbackACB will be invoked if something goes wrong (network, bad parameters to the API etc)
+**Returns immediately** =  just makes a plan that when the web API will return successCallbackACB will be invoked if all goes OK and  errorCallbackACB will be invoked if something goes wrong (network, bad parameters to the API etc)
+
+### The Callback Pyramid of Doom
+```javascript
+getDataFromAPI("http://api1.server", apiParameters, 
+   function firstOperationACB(data1) {
+               getDataFromAPI("http://api2.server", apiParametersUsingdata1,  
+                      function secondStepACB(data2) {
+                           getDataFromAPI("http://api3.server", apiParametersUsingdata1_data2,  
+                                 function thirdStepACB(data3){  
+                                            /* use data1, data2, data3 */
+                                 }, 
+                                function thirdStepErrorACB(error3){..}.
+                          )
+                 }, 
+                function secondStepErrorACB(error2){..}
+           )
+   }, 
+   function firstStepErrorACB(error1){..}
+)
+```
+
+### Promises
+
+Asynchronous Web API access in browsers: **fetch**
+```javascript
+fetch("http://api.server", parameters).then(successCallbackACB).catch(errorCallbackACB)
+```
+
+The object returned by fetch() is of type Promise
+- then() is a method of Promise
+- then() also returns a Promise (so another then() can come after, hence chaining) 
+- catch() is also a promise method returning Promise
+
+```javascript
+fetch("http://api.server", parameters).then(acb1).then(acb2).catch(errorCallbackACB)
+```
+
+How the promise chain works:
+1. If things go well in fetch() and acb1 is called, we say that the **promise resolves** (or fulfills) 
+Otherwise the **promise rejects** (or fails) and errorCallbackACB is called.
+2. If acb1 returns a Promise, that promise will be returned by then(acb1). 
+otherwise then() will wrap its result into a promise that resolves immediately (so the next then() is called, if any)
