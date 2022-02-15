@@ -37,6 +37,7 @@ Contents:
 - [Create Random ID](#create-random-id)
 - [Web APIs](#web-apis)
 	+ [Synchronous Web API access](#synchronous-web-api-access)
+	+ [Asynchronous Web API access](#asynchronous-web-api-access)
 
 
 --------------------------------
@@ -536,9 +537,21 @@ const seeM = "seeMore" + UID;
 function getDataCB(e){ getDataFromAPI("http://some.api", apiParameters); }
 <button onClick={getDataCB}>Search!</button>
 ```
-:rotating_light: When the button is clicked, if getDataFromAPI takes 5 seconds to return, the UI (browser tab…) will be frozen (unresponsive) for 5 seconds! 
+:rotating_light: When the button is clicked, if getDataFromAPI takes 5 seconds to return, the UI will be frozen for 5 seconds! 
 
 Never take too long in your event listeners! If you need to perform time-consuming operations, you can use e.g.
 ```javascript
 setTimeout(function longTimeACB(){ time ; consuming ; operations; }, 0);   // 0 is the delay in ms
 ```
+
+### Asynchronous Web API access
+```javascript
+getDataFromAPI("http://api.server", apiParameters, successCallbackACB, errorCallbackACB)
+
+getDataFromAPI("http://api.server", apiParameters	, function successACB(data){ ..}
+, function errorACB(error){..})
+```
+
+:bulb: The advantage is that getDataFromAPI returns immediately so the UI (browser tab) is not frozen.
+
+Returns immediately=  just makes a plan that when the web API will return successCallbackACB will be invoked if all goes OK and  errorCallbackACB will be invoked if something goes wrong (network, bad parameters to the API etc)
