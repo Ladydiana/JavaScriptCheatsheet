@@ -35,7 +35,8 @@ Contents:
 - [Custom components](#custom-components)
 - [Inline Javascript](#inline-javascript)
 - [Create Random ID](#create-random-id)
-
+- [Web APIs](#web-apis)
+	+ [Synchronous Web API access](#synchronous-web-api-access)
 
 
 --------------------------------
@@ -526,3 +527,18 @@ const seeM = "seeMore" + UID;
 <a id={seeM} onClick={toggleSeeMore} href="javascript:void(0);">See More</a>
 ```
 
+
+## Web APIs
+
+### Synchronous Web API access
+
+```javascript
+function getDataCB(e){ getDataFromAPI("http://some.api", apiParameters); }
+<button onClick={getDataCB}>Search!</button>
+```
+:rotating_light: When the button is clicked, if getDataFromAPI takes 5 seconds to return, the UI (browser tab…) will be frozen (unresponsive) for 5 seconds! 
+
+Never take too long in your event listeners! If you need to perform time-consuming operations, you can use e.g.
+```javascript
+setTimeout(function longTimeACB(){ time ; consuming ; operations; }, 0);   // 0 is the delay in ms
+```
