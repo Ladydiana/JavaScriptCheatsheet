@@ -41,6 +41,7 @@ Contents:
 	+ [The Callback Pyramid of Doom](#the-callback-pyramid-of-doom)
 	+ [Promises](#promises)
 	+ [Passing parameters to APIs](#passing-parameters-to-apis)
+	+ [Promise state](#promise-state)
 
 --------------------------------
 # Variables
@@ -647,7 +648,7 @@ fetch('https://api.server/endpoint', {
   body: JSON.stringify(someObject),
 }).then.
 ```
-The server response also contains headers. W can retrieve them from the fetch() response.
+The server response also contains headers. We can retrieve them from the fetch() response.
 
 ```javascript
 fetch("https://pokeapi.co/api/v2/pokemon/1").then(
@@ -655,4 +656,34 @@ fetch("https://pokeapi.co/api/v2/pokemon/1").then(
 );
 ```
 
+## Promise state
+```
+{promise, data, error}
+```
 
+1. When promise changes*, data and error are set to null, waiting for the promise to resolve or to reject
+2. When promise is resolved (aka fulfilled, aka successful), data is set
+3. When promise is rejected, error is set
+
+* due to user interaction (a new search, reading another dish)
+
+```javascript
+function resolvePromise(promiseToResolve, promiseState){
+	promiseState.promise=promiseToResolve;
+	promiseState.data= null;           // UI update! The user does not keep seeing results from previous search
+	promiseState.error= null;
+	function saveDataACB(result){ promiseState.data= result; }  // triggers UI update because of changing state
+	function saveErrorACB(err)  { promiseState.error= err; }    // triggers UI update because of changing state
+	promiseToResolve.then(saveDataACB).catch(saveErrorACB);
+}
+
+function AsyncPresenter(props){ 
+	function doSearchACB(params){ resolvePromise(myAPICall(params), props.model.myPromiseState); }
+	return <SomeView onSearch={doSearchACB} searchResults={props.model.myPromiseState.data} />
+}
+
+function SomeView(props){
+ 	function handleInputACB(event){ props.onSearch(event.target.value); }
+	return <div><input onChange={handleInputACB} /> { props.searchResults }</div>;
+}
+```
