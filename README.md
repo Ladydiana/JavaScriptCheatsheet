@@ -665,7 +665,9 @@ fetch("https://pokeapi.co/api/v2/pokemon/1").then(
 2. When promise is resolved (aka fulfilled, aka successful), data is set
 3. When promise is rejected, error is set
 
-* due to user interaction (a new search, reading another dish)
+*due to user interaction (a new search, reading another dish)
+
+### Naive setup 
 
 ```javascript
 function resolvePromise(promiseToResolve, promiseState){
@@ -685,5 +687,41 @@ function AsyncPresenter(props){
 function SomeView(props){
  	function handleInputACB(event){ props.onSearch(event.target.value); }
 	return <div><input onChange={handleInputACB} /> { props.searchResults }</div>;
+}
+```
+
+:rotating_light: *Problems: race condition* -> second promise can resolve before the 1st promise
+
+```javascript
+// Bad scenario
+000 doSearchACB("past")  
+001 promiseState.data=null, fetch("?past")
+007 doSearchACB("pastic")
+008 promiseState.data=null, fetch("?pastic")
+
+700 promiseState.data= "pasticcio"
+800 promiseState.data= "lots of pasta"
+```
+User sees "pasticcio" for 100ms (if they manage), then "pasta", which is not what they were looking for
+
+### Solutions 
+#### Debouncing 
+ -> not good enough
+ 
+#### Only save if promiseState.promise is still the same
+```javascript
+function resolvePromise(promiseToResolve, promiseState){
+	promiseState.promise=promiseToResolve;
+	promiseState.data= null;         
+	promiseState.error= null;
+	function saveDataACB(result){ 
+		if(promiseState.promise !== promiseToResolve) return;
+	/* TODO save result in promiseState, as before */
+	} 
+	function saveErrorACB(err)  { 
+		/* TODO same check as above */
+	/* TODO save err in promiseState, as before */
+	}
+	promiseToResolve.then(saveDataACB).catch(saveErrorACB);
 }
 ```
