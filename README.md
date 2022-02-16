@@ -783,5 +783,22 @@ function resolvePromise(promise, promiseState, notifyACB){
 	}
 	promise.then(saveDataACB).catch(saveErrorACB);
 }
-
 ```
+
+### promiseNoData(promiseState)
+```javascript
+return <div>
+   <SomeViewForm onSearch={doSearchACB} />
+   { promiseNoData(props.model.searchPromiseState) || 
+ 			<SomeViewResults searchResults={props.model.searchPromiseState.data}/>}
+</div>;
+```
+
+promiseState.promise | promiseState.data | promiseState.error | promiseNoData() return value |
+--- | --- | --- | --- |
+falsy | don’t care | don’t care | <div>No data</div> |
+truthy | falsy | falsy | <img src=TODO class=TODO />   a “loading image” animated GIF |
+truthy | falsy | truthy | <div class=TODO >{error}</div> |
+truthy | *truthy* | falsy | *false* . This will ensure that the second || operand is evaluated:  there is data, so the View can render that data. Note that promiseNoData returns truthy in all other cases above! |
+
+
