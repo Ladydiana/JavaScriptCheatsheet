@@ -750,12 +750,38 @@ function resolvePromise(promise, promiseState){
 	promiseState.error= null;
 	function saveDataACB(result){ 
 		if(promiseState.promise!==promise) return;
-	/* TODO save result in promiseState, as before */
+		/* TODO save result in promiseState, as before */
 	} 
 	function saveErrorACB(err)  { 
 		/* TODO same check as above */
-	/* TODO save err in promiseState, as before */
+		/* TODO save err in promiseState, as before */
 	}
 	promise.then(saveDataACB).catch(saveErrorACB);
 }
+```
+
+### Notify when promise is resolved
+Vue will detect any change under model.somePromiseState.  
+
+React and other frameworks will not detect that, so they will need explicit notification (Observer) 
+
+```javascript
+function resolvePromise(promise, promiseState, notifyACB){
+	promiseState.promise= promise;
+	promiseState.data= null;         
+	promiseState.error= null;
+	if(notifyACB) notifyACB();    // notify every time promise, data, or error change
+	function saveDataACB(result){ 
+		if(promiseState.promise!==promise) return;
+	/* TODO save result in promiseState */
+	* TODO notify */
+	} 
+	function saveErrorACB(err)  { 
+		/* TODO promise check as above */
+	/* TODO save err in promiseState */
+	/* TODO notify */
+	}
+	promise.then(saveDataACB).catch(saveErrorACB);
+}
+
 ```
