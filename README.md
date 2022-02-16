@@ -725,3 +725,35 @@ function resolvePromise(promiseToResolve, promiseState){
 	promiseToResolve.then(saveDataACB).catch(saveErrorACB);
 }
 ```
+```000 doSearchACB("past") 
+001 promiseState.promise=promise1;
+    fetch("?past")
+007 doSearchACB("pastic")
+008 promiseState.promise=promise2;
+    fetch("?pastic")
+
+700 promiseState.data= "pasticcio"
+800 promiseState.data= "lots of pasta"
+
+User sees only “pasticcio” 
+```
+
+#### Cancel the old promise
+->the promise might retreive a huge file, eating data
+function resolvePromise(promise, promiseState){
+	if(promiseState.promise 
+ 	&& !promiseState.data && !promiseState.error)  // not yet resolved/rejected
+		cancelPromise(promiseState.promise); 
+	promiseState.promise=promise;
+	promiseState.data= null;         
+	promiseState.error= null;
+	function saveDataACB(result){ 
+		if(promiseState.promise!==promise) return;
+	/* TODO save result in promiseState, as before */
+	} 
+	function saveErrorACB(err)  { 
+		/* TODO same check as above */
+	/* TODO save err in promiseState, as before */
+	}
+	promise.then(saveDataACB).catch(saveErrorACB);
+}
