@@ -40,6 +40,7 @@ Contents:
 	+ [Asynchronous Web API access](#asynchronous-web-api-access)
 	+ [The Callback Pyramid of Doom](#the-callback-pyramid-of-doom)
 	+ [Promises](#promises)
+	+ [Passing parameters to APIs](#passing-parameters-to-apis)
 
 --------------------------------
 # Variables
@@ -598,3 +599,60 @@ How the promise chain works:
 Otherwise the **promise rejects** (or fails) and errorCallbackACB is called.
 2. If acb1 returns a Promise, that promise will be returned by then(acb1). 
 otherwise then() will wrap its result into a promise that resolves immediately (so the next then() is called, if any)
+
+### Passing parameters to APIs
+- HTTP method
+- HTTP resource path (path on server) and query string
+- HTTP headers
+- HTTP body (data)
+
+#### HTTP method and REST. API Endpoints
+- GET (read data from API). Default method in e.g. fetch()
+- POST (create new data on the server, or send complex read requests)
+- PUT (update data on the server)
+- DELETE (remove data from server)
+
+```javascript
+fetch("http://api.server/resource/12445" ,{ method: "GET" }).then(...) 
+fetch("http://api.server/resource/12445" )  // GET is default!
+fetch("http://api.server/resource/12445" ,{ method: "DELETE" })
+fetch("http://api.server/resource/12445" ,{ method: "PUT" , body: JSON.stringify(someObject)})
+```
+
+API Endpoint = method + resource path 
+
+#### Query string
+```javascript
+cleverDishSearch?freeText=bla+bla&type=appetizer
+```
+? followed by name=value pairs separated by  & 
+
+To avoid all escaping complexities, use the built-in class URLSearchParams, pass a JavaScript object to its constructor.
+```javascript
+fetch(API_SERVER+
+"/cleverDishSearch?" + new URLSearchParams({ freeText:"bla bla", type:"appetizer" })
+)  // GET HTTP method is default!
+
+```
+
+#### HTTP headers and body
+Headers=key-value pairs
+
+```javascript
+fetch('https://api.server/endpoint', {
+  method: 'POST', // or 'PUT'
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(someObject),
+}).then.
+```
+The server response also contains headers. W can retrieve them from the fetch() response.
+
+```javascript
+fetch("https://pokeapi.co/api/v2/pokemon/1").then(
+   function responseACB(r){ r.headers.forEach( function headerCB(h){console.log(h);} ); }
+);
+```
+
+
