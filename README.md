@@ -740,6 +740,7 @@ User sees only “pasticcio”
 
 #### Cancel the old promise
 ->the promise might retreive a huge file, eating data
+```javascript
 function resolvePromise(promise, promiseState){
 	if(promiseState.promise 
  	&& !promiseState.data && !promiseState.error)  // not yet resolved/rejected
@@ -757,3 +758,4 @@ function resolvePromise(promise, promiseState){
 	}
 	promise.then(saveDataACB).catch(saveErrorACB);
 }
+```
