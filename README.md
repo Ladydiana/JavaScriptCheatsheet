@@ -506,7 +506,7 @@ function myFilter(array, tester){                   // no need for else after re
 !!! asynchronous!
 | Question 												| Answer |
 | -----------------------------------------------------	| ------ |
-| How to pass the callback?								| <someHTMLTag    onClick={acb} />  |
+| How to pass the callback?								| <someHTMLTag onClick={acb} />  |
 |														| someDOMNode.addEventListener("click",  cb) | 
 | Other params needed besides the callback? 			| No for onClick, yes for addEventListener ("click") |
 | What does <someHTMLTag  onClick={acb} /> return?      | nothing |
