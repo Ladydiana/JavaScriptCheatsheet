@@ -34,6 +34,7 @@ Contents:
 		* [Map-Reduce](#map-reduce)
 		* [JSX functional component: createElement(ACB,props)](#jsx-functional-component-createelementacbprops)
 		* [onEvent={ACB} addEventListener(event, ACB)](#oneventacb-addeventlistenerevent-acb)
+		* [customEvent={ACB}](#customEvent-acb)
 - [Custom components](#custom-components)
 - [Inline Javascript](#inline-javascript)
 - [Create Random ID](#create-random-id)
@@ -489,8 +490,8 @@ function myFilter(array, tester){                   // no need for else after re
 |														|``` <MyComponent  {... {prop1:value1, prop2:value2} } /> ```|
 |														|``` <MyComponent  {... someObject } /> ```|
 |														|``` <MyComponent .. > <Child1.. />  <Child2 .. /></MyComponent> ```|
-|														| React.createElement(MyComponent, props, children) ```|
-|														| Vue.h(MyComponent, props, children) ```|  
+|														|``` React.createElement(MyComponent, props, children) ```|
+|														|``` Vue.h(MyComponent, props, children) ```|  
 | Other params needed besides the callback? 			| No |
 | What does <MyComponent /> return?          			| Framework-dependent. Some plan to call MyComponent(props) |
 | When does <MyComponent /> return?          			| Immediately. (just makes a plan that when rendering/update is needed ACB will be invoked) |
@@ -518,6 +519,22 @@ function myFilter(array, tester){                   // no need for else after re
 | Is the callback called once? Or repeatedly?       	| As many times as the user interacts |
 | What is the role of the callback?   					| Programmatically react to user interaction |
 | Example callback names                 				| buttonClickedACB |
+
+### customEvent={ACB}
+!!! asynchronous!
+| Question 												| Answer |
+| -----------------------------------------------------	| ------ |
+| How to pass the callback?								| ``` <SomeComponent    customEvent={ACB} />   ```|
+| Other params needed besides the callback? 			| No |
+| What does <SomeComponent    customEvent={ACB} /> return?      | nothing |
+| When does <SomeComponent    customEvent={ACB} /> return?      | Immediately  (just makes a plan that when the custom event is fired, ACB will be invoked) |
+| Who calls the callback, and sends parameters?       	| SomeComponent code, typically in a native or custom event listener |
+| Role (and usual name?) of callback parameters      	| Can vary. Typically abstract (non-graphical objects) |
+| What is the callback expected to return?       		| nothing |
+| When is the callback called?     						| Typically when a native or custom event handler invoked in SomeComponent |
+| Is the callback called once? Or repeatedly?       	| Repeatedly |
+| What is the role of the callback?   					| Interpret a lower level event in more abstract terms |
+| Example callback names                 				| somethingHappenedACB |
 
 ## Custom components
 **!!! ACB !!!**
