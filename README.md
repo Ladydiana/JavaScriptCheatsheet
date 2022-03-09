@@ -485,12 +485,12 @@ function myFilter(array, tester){                   // no need for else after re
 !!! asynchronous!
 | Question 												| Answer |
 | -----------------------------------------------------	| ------ |
-| How to pass the callback?     						| <MyComponent  prop1={value1} prop2= {value2} /> <br />
+| How to pass the callback?     						| ``<MyComponent  prop1={value1} prop2= {value2} /> <br />
 														  <MyComponent  {... {prop1:value1, prop2:value2} } /> <br />
 														  <MyComponent  {... someObject } /> <br />
 														  <MyComponent .. > <Child1.. />  <Child2 .. /></MyComponent> <br />
 														  React.createElement(MyComponent, props, children) <br />
-														  Vue.h(MyComponent, props, children)   |  
+														  Vue.h(MyComponent, props, children)``   |  
 | Other params needed besides the callback? 			| No |
 | What does <MyComponent /> return?          			| Framework-dependent. Some plan to call MyComponent(props) |
 | When does <MyComponent /> return?          			| Immediately. (just makes a plan that when rendering/update is needed ACB will be invoked) |
