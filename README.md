@@ -34,7 +34,7 @@ Contents:
 		* [Map-Reduce](#map-reduce)
 		* [JSX functional component: createElement(ACB,props)](#jsx-functional-component-createelementacbprops)
 		* [onEvent={ACB} addEventListener(event, ACB)](#oneventacb-addeventlistenerevent-acb)
-		* [customEvent={ACB}](#customEvent-acb)
+		* [customEvent={ACB}](#customeventacb)
 - [Custom components](#custom-components)
 - [Inline Javascript](#inline-javascript)
 - [Create Random ID](#create-random-id)
