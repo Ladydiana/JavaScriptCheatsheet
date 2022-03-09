@@ -32,8 +32,8 @@ Contents:
 		* [Array.reduce](#arrayreduce)
 		* [setTimeout  / setInterval](#settimeout---setinterval)
 		* [Map-Reduce](#map-reduce)
-		* [JSX functional component: createElement(ACB,props)](#jsx-functional-component--createelement-acb-props-)
-		* [onEvent={ACB} addEventListener(event, ACB)](#onevent--acb--addeventlistener-event--acb-)
+		* [JSX functional component: createElement(ACB,props)](#jsx-functional-component-createelementacbprops)
+		* [onEvent={ACB} addEventListener(event, ACB)](#oneventacb-addeventlistenerevent-acb)
 - [Custom components](#custom-components)
 - [Inline Javascript](#inline-javascript)
 - [Create Random ID](#create-random-id)
@@ -506,7 +506,7 @@ function myFilter(array, tester){                   // no need for else after re
 !!! asynchronous!
 | Question 												| Answer |
 | -----------------------------------------------------	| ------ |
-| How to pass the callback?								| <someHTMLTag onClick={acb} />  |
+| How to pass the callback?								| ``` <someHTMLTag onClick={acb} />  ```|
 |														| someDOMNode.addEventListener("click",  cb) | 
 | Other params needed besides the callback? 			| No for onClick, yes for addEventListener ("click") |
 | What does <someHTMLTag  onClick={acb} /> return?      | nothing |
