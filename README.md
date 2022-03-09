@@ -485,12 +485,12 @@ function myFilter(array, tester){                   // no need for else after re
 !!! asynchronous!
 | Question 												| Answer |
 | -----------------------------------------------------	| ------ |
-| How to pass the callback?								| <MyComponent  prop1={value1} prop2= {value2} /> |
-|														| <MyComponent  {... {prop1:value1, prop2:value2} } /> |
-|														| <MyComponent  {... someObject } /> |
-|														| <MyComponent .. > <Child1.. />  <Child2 .. /></MyComponent> |
-|														| React.createElement(MyComponent, props, children) |
-|														| Vue.h(MyComponent, props, children) |  
+| How to pass the callback?								|``` <MyComponent  prop1={value1} prop2= {value2} /> ```|
+|														|``` <MyComponent  {... {prop1:value1, prop2:value2} } /> ```|
+|														|``` <MyComponent  {... someObject } /> ```|
+|														|``` <MyComponent .. > <Child1.. />  <Child2 .. /></MyComponent> ```|
+|														| React.createElement(MyComponent, props, children) ```|
+|														| Vue.h(MyComponent, props, children) ```|  
 | Other params needed besides the callback? 			| No |
 | What does <MyComponent /> return?          			| Framework-dependent. Some plan to call MyComponent(props) |
 | When does <MyComponent /> return?          			| Immediately. (just makes a plan that when rendering/update is needed ACB will be invoked) |
@@ -507,7 +507,7 @@ function myFilter(array, tester){                   // no need for else after re
 | Question 												| Answer |
 | -----------------------------------------------------	| ------ |
 | How to pass the callback?								| ``` <someHTMLTag onClick={acb} />  ```|
-|														| someDOMNode.addEventListener("click",  cb) | 
+|														| ``` someDOMNode.addEventListener("click",  cb) ```| 
 | Other params needed besides the callback? 			| No for onClick, yes for addEventListener ("click") |
 | What does <someHTMLTag  onClick={acb} /> return?      | nothing |
 | When does <someHTMLTag  onClick={acb} /> return?      | Immediately. (just makes a plan that when user clicks, ACB will be invoked) |
