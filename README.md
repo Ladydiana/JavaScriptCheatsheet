@@ -32,6 +32,7 @@ Contents:
 		* [Array.reduce](#arrayreduce)
 		* [setTimeout  / setInterval](#settimeout---setinterval)
 		* [Map-Reduce](#map-reduce)
+		* [JSX-functional-component](#jsx-functional-component)
 - [Custom components](#custom-components)
 - [Inline Javascript](#inline-javascript)
 - [Create Random ID](#create-random-id)
@@ -479,6 +480,28 @@ function myFilter(array, tester){                   // no need for else after re
 }
 ```
 
+### JSX functional component
+
+!!! asynchronous!
+| Question 												| Answer |
+| -----------------------------------------------------	| ------ |
+| How to pass the callback?     						| <MyComponent  prop1={value1} prop2= {value2} />
+														  <MyComponent  {... {prop1:value1, prop2:value2} } />
+														  <MyComponent  {... someObject } /> 
+														  <MyComponent .. > <Child1.. />  <Child2 .. /></MyComponent>
+														  React.createElement(MyComponent, props, children)
+														  Vue.h(MyComponent, props, children)  |  
+| Other params needed besides the callback? 			| No |
+| What does <MyComponent /> return?          			| Framework-dependent. Some plan to call MyComponent(props) |
+| When does <MyComponent /> return?          			| Immediately. (just makes a plan that when rendering/update is needed ACB will be invoked) |
+| Who calls the callback, and sends parameters?       	| The framework. |
+| Role (and usual name?) of callback parameters      	| One parameter, a JS object. It is usually called props but it’s just a convention |
+| What is the callback expected to return?       		| JSX, user interface |
+| When is the callback called?     						| At initial render, and every time the framework deems that the component must update |
+| Is the callback called once? Or repeatedly?       	| Repeatedly |
+| What is the role of the callback?   					| Render user interface in a reusable manner |
+| Example callback names                 				| Depends on the role of the component in the overall UI / project   |
+
 ## Custom components
 **!!! ACB !!!**
 ```javascript
@@ -797,7 +820,7 @@ return <div>
 promiseState.promise | promiseState.data | promiseState.error | promiseNoData() return value |
 --- | --- | --- | --- |
 falsy | don’t care | don’t care | ```<div>No data</div>``` |
-truthy | falsy | falsy | ```<img src=TODO class=TODO />```   a “loading image” animated GIF |
+truthy | falsy | falsy | ```<img src=TODO class=TODO />```   a "loading image" animated GIF |
 truthy | falsy | truthy | ```<div class=TODO >{error}</div>``` |
 truthy | *truthy* | falsy | *false* . This will ensure that the second || operand is evaluated:  there is data, so the View can render that data. Note that promiseNoData returns truthy in all other cases above! |
 
