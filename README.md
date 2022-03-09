@@ -32,7 +32,8 @@ Contents:
 		* [Array.reduce](#arrayreduce)
 		* [setTimeout  / setInterval](#settimeout---setinterval)
 		* [Map-Reduce](#map-reduce)
-		* [JSX-functional-component](#jsx-functional-component)
+		* [JSX functional component: createElement(ACB,props)](#jsx-functional-component--createelement-acb-props-)
+		* [onEvent={ACB} addEventListener(event, ACB)](#onevent--acb--addeventlistener-event--acb-)
 - [Custom components](#custom-components)
 - [Inline Javascript](#inline-javascript)
 - [Create Random ID](#create-random-id)
@@ -480,12 +481,11 @@ function myFilter(array, tester){                   // no need for else after re
 }
 ```
 
-### JSX functional component
-
+### JSX functional component: createElement(ACB,props)
 !!! asynchronous!
 | Question 												| Answer |
 | -----------------------------------------------------	| ------ |
-| How to pass the callback?     						| <MyComponent  prop1={value1} prop2= {value2} /> |
+| How to pass the callback?								| <MyComponent  prop1={value1} prop2= {value2} /> |
 |														| <MyComponent  {... {prop1:value1, prop2:value2} } /> |
 |														| <MyComponent  {... someObject } /> |
 |														| <MyComponent .. > <Child1.. />  <Child2 .. /></MyComponent> |
@@ -501,6 +501,23 @@ function myFilter(array, tester){                   // no need for else after re
 | Is the callback called once? Or repeatedly?       	| Repeatedly |
 | What is the role of the callback?   					| Render user interface in a reusable manner |
 | Example callback names                 				| Depends on the role of the component in the overall UI / project   |
+
+### onEvent={ACB} addEventListener(event, ACB)
+!!! asynchronous!
+| Question 												| Answer |
+| -----------------------------------------------------	| ------ |
+| How to pass the callback?								| <someHTMLTag    onClick={acb} />  |
+|														| someDOMNode.addEventListener("click",  cb) | 
+| Other params needed besides the callback? 			| No for onClick, yes for addEventListener ("click") |
+| What does <someHTMLTag  onClick={acb} /> return?      | nothing |
+| When does <someHTMLTag  onClick={acb} /> return?      | Immediately. (just makes a plan that when user clicks, ACB will be invoked) |
+| Who calls the callback, and sends parameters?       	| browser event loop |
+| Role (and usual name?) of callback parameters      	| event object (includes target, timestamp, etc, details later) |
+| What is the callback expected to return?       		| nothing  any longer. false prevented default browser action (e.g. submit form) |
+| When is the callback called?     						| When user interacts, or e.g. page load:   document.body.addEventListener("load”, cb) |
+| Is the callback called once? Or repeatedly?       	| As many times as the user interacts |
+| What is the role of the callback?   					| Programmatically react to user interaction |
+| Example callback names                 				| buttonClickedACB |
 
 ## Custom components
 **!!! ACB !!!**
