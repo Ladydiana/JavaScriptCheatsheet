@@ -35,7 +35,7 @@ Contents:
 		* [JSX functional component: createElement(ACB,props)](#jsx-functional-component-createelementacbprops)
 		* [onEvent={ACB} addEventListener(event, ACB)](#oneventacb-addeventlistenerevent-acb)
 		* [customEvent={ACB}](#customeventacb)
-		* [fetch(..).then(ACB)....catch(EACB)](#fetch(..).then(ACB)....catch(EACB))
+		* [fetch(..).then(ACB)....catch(EACB)](#fetchthenacbcatcheacb)
 - [Custom components](#custom-components)
 - [Inline Javascript](#inline-javascript)
 - [Create Random ID](#create-random-id)
