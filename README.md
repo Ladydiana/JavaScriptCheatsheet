@@ -35,6 +35,7 @@ Contents:
 		* [JSX functional component: createElement(ACB,props)](#jsx-functional-component-createelementacbprops)
 		* [onEvent={ACB} addEventListener(event, ACB)](#oneventacb-addeventlistenerevent-acb)
 		* [customEvent={ACB}](#customeventacb)
+		* [fetch(..).then(ACB)....catch(EACB)](#fetch(..).then(ACB)....catch(EACB))
 - [Custom components](#custom-components)
 - [Inline Javascript](#inline-javascript)
 - [Create Random ID](#create-random-id)
@@ -519,6 +520,22 @@ function myFilter(array, tester){                   // no need for else after re
 | Is the callback called once? Or repeatedly?       	| As many times as the user interacts |
 | What is the role of the callback?   					| Programmatically react to user interaction |
 | Example callback names                 				| buttonClickedACB |
+
+### fetch(..).then(ACB)....catch(EACB)
+!!! asynchronous!
+| Question 												| Answer |
+| -----------------------------------------------------	| ------ |
+| How to pass the callback?								| ``` fetch(..).then(ACB) ``` catch is optional and may come later in the promise chain |
+| Other params needed besides the callback? 			| No |
+| What does fetch(..).then(ACB) return?      			| A Promise, which in turn has a then(..) method, catch(..) etc |
+| When does fetch(..).then(ACB) return?      			| Immediately. Just makes a plan that when the HTTP response comes, ACB will be invoked |
+| Who calls the ACB callback, and sends parameters?    	| Browser network layer. See the Network tab in DevTools |
+| Role (and usual name?) of callback parameters      	| The HTTP response: response code, headers. No  data ! |
+| What is the callback expected to return?       		| Typically response.json() or response.text(). That is, a new promise is returned, to treat the data content of the HTTP access. |
+| When is the callback called?     						| When the HTTP response has arrived from the server. The data may still be in transit! |
+| Is the callback called once? Or repeatedly?       	| Once or zero times (if there is an error in the HTTP call, EACB is called) |
+| What is the role of the callback?   					| Look at the response and fire up the second fetch promise like json() or text(). Examine the response code, possibly throw if it is not 200 (HTTP OK). Then the EACB will be called  |
+| Example callback names                 				| treatHTTPResonseACB |
 
 ### customEvent={ACB}
 !!! asynchronous!
