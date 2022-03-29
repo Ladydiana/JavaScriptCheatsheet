@@ -39,6 +39,7 @@ Contents:
 - [Custom components](#custom-components)
 - [Inline Javascript](#inline-javascript)
 - [Create Random ID](#create-random-id)
+- [Print Page](#print-page)
 - [Web APIs](#web-apis)
 	+ [Synchronous Web API access](#synchronous-web-api-access)
 	+ [Asynchronous Web API access](#asynchronous-web-api-access)
@@ -605,6 +606,10 @@ const seeM = "seeMore" + UID;
 <a id={seeM} onClick={toggleSeeMore} href="javascript:void(0);">See More</a>
 ```
 
+## Print Page
+```javascript
+<button onclick="window.print()">Print This Page</button>
+```
 
 ## Web APIs
 
