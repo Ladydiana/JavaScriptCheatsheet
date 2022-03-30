@@ -3,6 +3,10 @@
 Useful: 	
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/
 * https://www.w3schools.com/js/tryit.asp?filename=tryjs_editor
+* https://apps.apple.com/us/app/flycut-clipboard-manager/id442160987?mt=12
+* https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens
+* https://threejs-journey.com/?gclid=Cj0KCQjw_4-SBhCgARIsAAlegrWT9w-Ixx7ahdxy1rk7cjUIBBwsJdzfO46_D8eGITnr1_5HNhEuSZAaAleqEALw_wcB
+ 
 
 Contents:
 - [Variables](#variables)
