@@ -914,3 +914,10 @@ X Needed both rendering code (HTML/XML/static UI), and updating code for various
 X Hard to manage, render and update could be written in different languages
 
 ## New approach: re-render & reconciliation
+
+**Re-render**= on every change, the component is re-rendered completely, even if only a small part of it changes
+**Advantage:** only need to define rendering code
+**Disadvantage:** Complete re-render is more resource-intensive than incremental update
+
+To alleviate that, frameworks do not re-render in the browser UI tree (DOM) but in a virtual, in-memory tree (Virtual DOM).  
+Then they compare the two trees and only implement the differences in the browser DOM (**Reconciliation**) 
