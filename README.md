@@ -51,6 +51,7 @@ Contents:
 	+ [Promises](#promises)
 	+ [Passing parameters to APIs](#passing-parameters-to-apis)
 	+ [Promise state](#promise-state)
+- [Component State](#component-state)
 
 --------------------------------
 # Variables
@@ -885,3 +886,11 @@ truthy | falsy | truthy | ```<div class=TODO >{error}</div>``` |
 truthy | *truthy* | falsy | *false* . This will ensure that the second || operand is evaluated:  there is data, so the View can render that data. Note that promiseNoData returns truthy in all other cases above! |
 
 
+# Component state
+### Why do we use it?
+Some parameters do not need to be kept in Application state, as they are local and not shared between presenters.
+
+### Disadvantages
+- Platform dependent
+- If the parameters from component state need persistance, then they need to be saved in the Application state anyway.
+- 
