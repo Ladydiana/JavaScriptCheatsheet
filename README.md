@@ -896,22 +896,23 @@ Some parameters do not need to be kept in Application state, as they are local a
 
 ## Advantages
 - UI less dependent on Application state 
-
-		-> more portable
-		-> can be shared and reused
+	- more portable
+	- can be shared and reused
 
 ## Disadvantages
-X Platform dependent
-X Needs component lifecycle and watchers (observers / listeners)
-X If the parameters from component state need persistance, then they need to be saved in the Application state anyway.
-X Promise state management becomes framework dependent
+**X** Platform dependent
+**X** Needs component lifecycle and watchers (observers / listeners)
+**X** If the parameters from component state need persistance, then they need to be saved in the Application state anyway.
+**X** Promise state management becomes framework dependent
 
 # Re-rendering
 
 ## Old approach: Incremental update
 - Changed only the parts of the GUI that needed to be changed
-X Needed both rendering code (HTML/XML/static UI), and updating code for various conditions(finding the element in the tree via getElementById(), querySelector(), etc)
-X Hard to manage, render and update could be written in different languages
+
+**X** Needed both rendering code (HTML/XML/static UI), and updating code for various conditions(finding the element in the tree via getElementById(), querySelector(), etc)
+
+**X** Hard to manage, render and update could be written in different languages
 
 ## New approach: re-render & reconciliation
 
