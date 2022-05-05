@@ -53,8 +53,8 @@ Contents:
 	+ [Promise state](#promise-state)
 - [Component State](#component-state)
 - [Re-rendering](#re-rendering)
-	* [Old approach: Incremental update](#old-approach--incremental-update)
-	* [New approach: re-render & reconciliation](#new-approach--re-render---reconciliation)
+	* [Old approach: Incremental update](#old-approach-incremental-update)
+	* [New approach: re-render & reconciliation](#new-approach-re-render--reconciliation)
 
 
 --------------------------------
