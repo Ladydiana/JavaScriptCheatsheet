@@ -52,13 +52,17 @@ Contents:
 	+ [Passing parameters to APIs](#passing-parameters-to-apis)
 	+ [Promise state](#promise-state)
 - [Component state](#component-state)
-  * [Why do we use it?](#why-do-we-use-it-)
+  * [Why do we use it?](#why-do-we-use-it)
   * [Advantages](#advantages)
   * [Disadvantages](#disadvantages)
   * [State based update](#state-based-update)
 - [Re-rendering](#re-rendering)
 	* [Old approach: Incremental update](#old-approach-incremental-update)
 	* [New approach: re-render & reconciliation](#new-approach-re-render--reconciliation)
+- [Stateless vs Stateful Components](#stateless-vs-stateful-components)
+  * [Stateless Components](#stateless-components)
+  * [Stateful components](#stateful-components)
+
 
 
 --------------------------------
@@ -940,4 +944,16 @@ Frameworks only provide component state and we implement application state using
 
 To alleviate that, frameworks do not re-render in the browser UI tree (DOM) but in a virtual, in-memory tree (Virtual DOM).  
 Then they compare the two trees and only implement the differences in the browser DOM (**Reconciliation**) 
+
+# Stateless vs Stateful Components
+
+## Stateless Components
+- Functional
+- Pure functions which render the same given the same props (Deterministic)
+- No side-effects
+## Stateful components
+- Rendering depends on state, not just on parameter (props).
+- Side effect: setting the state.
+
+
 
