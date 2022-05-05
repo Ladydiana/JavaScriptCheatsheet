@@ -986,8 +986,9 @@ function Motd(props){
 ```
 Changing message (calling setMsg with a different value) will make React trigger a re-render.
 
-!!! When setting the current value, React will avoid (**bail out**) re-rendering of sub-components.
-!!! React controlled (INPUT) component (if you set value, you must define onInput or onChange).
+**!!!** When setting the current value, React will avoid (**bail out**) re-rendering of sub-components.
+
+**!!!** React controlled (INPUT) component (if you set value, you must define onInput or onChange).
 
 ## Shallow React
 React re-renders **shallow**ly Arrays and Objects in component state. Adding an element to an Array (or changing a property of an Object) will not trigger re-render.
