@@ -901,8 +901,11 @@ Some parameters do not need to be kept in Application state, as they are local a
 
 ## Disadvantages
 **X** Platform dependent
+
 **X** Needs component lifecycle and watchers (observers / listeners)
+
 **X** If the parameters from component state need persistance, then they need to be saved in the Application state anyway.
+
 **X** Promise state management becomes framework dependent
 
 # Re-rendering
@@ -917,7 +920,9 @@ Some parameters do not need to be kept in Application state, as they are local a
 ## New approach: re-render & reconciliation
 
 **Re-render**= on every change, the component is re-rendered completely, even if only a small part of it changes
+
 **Advantage:** only need to define rendering code
+
 **Disadvantage:** Complete re-render is more resource-intensive than incremental update
 
 To alleviate that, frameworks do not re-render in the browser UI tree (DOM) but in a virtual, in-memory tree (Virtual DOM).  
