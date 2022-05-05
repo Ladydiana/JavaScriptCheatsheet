@@ -887,10 +887,17 @@ truthy | *truthy* | falsy | *false* . This will ensure that the second || operan
 
 
 # Component state
-### Why do we use it?
+## Why do we use it?
 Some parameters do not need to be kept in Application state, as they are local and not shared between presenters.
 
-### Disadvantages
+## Advantages
+- UI less dependent on Application state 
+
+		-> more portable
+		-> can be shared and reused
+
+## Disadvantages
 - Platform dependent
+- Needs component lifecycle and watchers (observers / listeners)
 - If the parameters from component state need persistance, then they need to be saved in the Application state anyway.
-- 
+- Promise state management becomes framework dependent
