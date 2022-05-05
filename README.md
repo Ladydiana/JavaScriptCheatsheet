@@ -51,7 +51,11 @@ Contents:
 	+ [Promises](#promises)
 	+ [Passing parameters to APIs](#passing-parameters-to-apis)
 	+ [Promise state](#promise-state)
-- [Component State](#component-state)
+- [Component state](#component-state)
+  * [Why do we use it?](#why-do-we-use-it-)
+  * [Advantages](#advantages)
+  * [Disadvantages](#disadvantages)
+  * [State based update](#state-based-update)
 - [Re-rendering](#re-rendering)
 	* [Old approach: Incremental update](#old-approach-incremental-update)
 	* [New approach: re-render & reconciliation](#new-approach-re-render--reconciliation)
@@ -908,6 +912,15 @@ Some parameters do not need to be kept in Application state, as they are local a
 
 **X** Promise state management becomes framework dependent
 
+## State based update
+**Problem:** function parameters and variables are lost after function execution (excp. closures) 
+
+1. Frameworks keep the data (component state) between Component function executions (renderings).
+2. Using event listeners, observers, promises, cloud persistence, a Component can change its own state.
+3. Framework updates (re-renders) the component when its State changes.
+
+Frameworks only provide component state and we implement application state using that.
+
 # Re-rendering
 
 ## Old approach: Incremental update
@@ -927,3 +940,4 @@ Some parameters do not need to be kept in Application state, as they are local a
 
 To alleviate that, frameworks do not re-render in the browser UI tree (DOM) but in a virtual, in-memory tree (Virtual DOM).  
 Then they compare the two trees and only implement the differences in the browser DOM (**Reconciliation**) 
+
