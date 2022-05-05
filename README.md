@@ -52,6 +52,10 @@ Contents:
 	+ [Passing parameters to APIs](#passing-parameters-to-apis)
 	+ [Promise state](#promise-state)
 - [Component State](#component-state)
+- [Re-rendering](#re-rendering)
+	* [Old approach: Incremental update](#old-approach--incremental-update)
+	* [New approach: re-render & reconciliation](#new-approach--re-render---reconciliation)
+
 
 --------------------------------
 # Variables
@@ -903,9 +907,10 @@ X If the parameters from component state need persistance, then they need to be 
 X Promise state management becomes framework dependent
 
 # Re-rendering
+
 ## Old approach: Incremental update
 - Changed only the parts of the GUI that needed to be changed
 X Needed both rendering code (HTML/XML/static UI), and updating code for various conditions(finding the element in the tree via getElementById(), querySelector(), etc)
 X Hard to manage, render and update could be written in different languages
 
-
+## New approach: re-render & reconciliation
