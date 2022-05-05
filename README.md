@@ -955,5 +955,6 @@ Then they compare the two trees and only implement the differences in the browse
 - Rendering depends on state, not just on parameter (props).
 - Side effect: setting the state.
 
-
+____
+# React Components State
 
