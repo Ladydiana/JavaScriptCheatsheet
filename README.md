@@ -62,6 +62,13 @@ Contents:
 - [Stateless vs Stateful Components](#stateless-vs-stateful-components)
   * [Stateless Components](#stateless-components)
   * [Stateful components](#stateful-components)
+- [React Component State](#react-components-state)
+  * [React State Hook](#react-state-hook)
+    + [General format](#general-format)
+    + [Example](#example)
+  * [Shallow React](#shallow-react)
+
+
 
 
 
@@ -956,5 +963,46 @@ Then they compare the two trees and only implement the differences in the browse
 - Side effect: setting the state.
 
 ____
-# React Components State
+# React Component State
+
+## React State Hook
+### General format
+```javascript
+function ReactStatefulComponent(props){
+  const [value, setter]= React.useState(initialValue);
+  return <SomeTag someAttr={value} 
+      onSomeEvent= {function handleEventACB(e){ setter(newValue); }  } />
+}
+```
+### Example
+```javascript
+function Motd(props){ 
+   const [message, setMsg]= React.useState("initial msg");   // state hook
+   return <div> 
+            <input onInput={ function handleInputACB(e){setMsg(e.target.value);}} />
+            <div>message of the day is: { message } </div>
+        </div>; 
+}
+```
+Changing message (calling setMsg with a different value) will make React trigger a re-render.
+
+!!! When setting the current value, React will avoid (**bail out**) re-rendering of sub-components.
+!!! React controlled (INPUT) component (if you set value, you must define onInput or onChange).
+
+## Shallow React
+React re-renders **shallow**ly Arrays and Objects in component state. Adding an element to an Array (or changing a property of an Object) will not trigger re-render.
+
+```javascript
+const [dishes, setDishes]= React.useState([]);
+dishes.push(someDish); setDishes(dishes)  // NO update! State is the same!
+setDishes(dishes.concat(someDish))    // update!  State has changed (a new array)
+setDishes([...dishes, someDish])    // update!  State has changed (a new array)
+setDishes([someDish, ...dishes])    // update!  State has changed (a new array)
+```
+
+You always need to create new Array or Object if their properties or elements change.  
+
+That means that the content of the Arrays and Objects in the React state should never change! They are immutable. 
+
+If you want to change React state, you have to create new ones.
 
