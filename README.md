@@ -41,7 +41,6 @@ Contents:
 		* [customEvent={ACB}](#customeventacb)
 		* [fetch(..).then(ACB)....catch(EACB)](#fetchthenacbcatcheacb)
 		* [customEvent={ACB}](#customevent--acb-)
-
 		* [addObserver(ACB)](#addobserveracb)
 - [Custom components](#custom-components)
 - [Inline Javascript](#inline-javascript)
@@ -585,17 +584,17 @@ function myFilter(array, tester){                   // no need for else after re
 ### addObserver(ACB)
 | Question 												| Answer |
 | -----------------------------------------------------	| ------ |
-| How to pass the callback?								| ``` <SomeComponent    customEvent={ACB} />   ```|
+| How to pass the callback?								| ``` addObserver(ACB)  ```|
 | Other params needed besides the callback? 			| No |
-| What does <SomeComponent    customEvent={ACB} /> return?      | nothing |
-| When does <SomeComponent    customEvent={ACB} /> return?      | Immediately  (just makes a plan that when the custom event is fired, ACB will be invoked) |
-| Who calls the callback, and sends parameters?       	| SomeComponent code, typically in a native or custom event listener |
-| Role (and usual name?) of callback parameters      	| Can vary. Typically abstract (non-graphical objects) |
+| What does addObserver(ACB)  return?      | sometimes a CB that removes the observer!  |
+| When does addObserver(ACB)  return?      | Immediately. Just makes a plan, that when something changes in the Subject (e.g. model), the obseverACB will be invoked. But it may call the observerACB once (synchronously!)|
+| Who calls the callback, and sends parameters?       	| The Subject/Observable (model), on notifyObservers() |
+| Role (and usual name?) of callback parameters      	| When available, name is payload |
 | What is the callback expected to return?       		| nothing |
-| When is the callback called?     						| Typically when a native or custom event handler invoked in SomeComponent |
+| When is the callback called?     						| When there are changes in the Subject = Observable = Mode |
 | Is the callback called once? Or repeatedly?       	| Repeatedly |
-| What is the role of the callback?   					| Interpret a lower level event in more abstract terms |
-| Example callback names                 				| somethingHappenedACB |
+| What is the role of the callback?   					| Update based on the latest data from the Subject = Observable = Model |
+| Example callback names                 				| myObserverACB |
 
 ## Custom components
 **!!! ACB !!!**
