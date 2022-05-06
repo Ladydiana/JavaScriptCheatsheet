@@ -40,6 +40,9 @@ Contents:
 		* [onEvent={ACB} addEventListener(event, ACB)](#oneventacb-addeventlistenerevent-acb)
 		* [customEvent={ACB}](#customeventacb)
 		* [fetch(..).then(ACB)....catch(EACB)](#fetchthenacbcatcheacb)
+		* [customEvent={ACB}](#customevent--acb-)
+
+		* [addObserver(ACB)](#addobserveracb)
 - [Custom components](#custom-components)
 - [Inline Javascript](#inline-javascript)
 - [Create Random ID](#create-random-id)
@@ -67,7 +70,8 @@ Contents:
     + [General format](#general-format)
     + [Example](#example)
   * [Shallow React](#shallow-react)
-
+- [Top level state react?](#top-level-state-react-)
+- [Observers](#observers)
 
 
 
@@ -578,6 +582,21 @@ function myFilter(array, tester){                   // no need for else after re
 | What is the role of the callback?   					| Interpret a lower level event in more abstract terms |
 | Example callback names                 				| somethingHappenedACB |
 
+### addObserver(ACB)
+| Question 												| Answer |
+| -----------------------------------------------------	| ------ |
+| How to pass the callback?								| ``` <SomeComponent    customEvent={ACB} />   ```|
+| Other params needed besides the callback? 			| No |
+| What does <SomeComponent    customEvent={ACB} /> return?      | nothing |
+| When does <SomeComponent    customEvent={ACB} /> return?      | Immediately  (just makes a plan that when the custom event is fired, ACB will be invoked) |
+| Who calls the callback, and sends parameters?       	| SomeComponent code, typically in a native or custom event listener |
+| Role (and usual name?) of callback parameters      	| Can vary. Typically abstract (non-graphical objects) |
+| What is the callback expected to return?       		| nothing |
+| When is the callback called?     						| Typically when a native or custom event handler invoked in SomeComponent |
+| Is the callback called once? Or repeatedly?       	| Repeatedly |
+| What is the role of the callback?   					| Interpret a lower level event in more abstract terms |
+| Example callback names                 				| somethingHappenedACB |
+
 ## Custom components
 **!!! ACB !!!**
 ```javascript
@@ -1006,4 +1025,16 @@ You always need to create new Array or Object if their properties or elements ch
 That means that the content of the Arrays and Objects in the React state should never change! They are immutable. 
 
 If you want to change React state, you have to create new ones.
+
+# Top level state react?
+** !!! BAD IDEA !!! **
+Setting the whole model as a state property  will not work because of the  React state: the model reference never changes, therefore no React re-render!
+
+When one of the state properties changes, the App will re-render, therefore all its children and their children will re-render.
+
+This is why we have the Presenters observing the model (=> **Observer**). For the Presenters to subscribe and observe the model, hey need component lifecycle.
+
+
+__________________________
+# Observers
 
