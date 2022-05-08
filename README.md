@@ -6,6 +6,7 @@ Useful:
 * https://apps.apple.com/us/app/flycut-clipboard-manager/id442160987?mt=12
 * https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens
 * https://threejs-journey.com/?gclid=Cj0KCQjw_4-SBhCgARIsAAlegrWT9w-Ixx7ahdxy1rk7cjUIBBwsJdzfO46_D8eGITnr1_5HNhEuSZAaAleqEALw_wcB
+* https://docs.google.com/presentation/d/1CtxiAG9mJ6kslSl6psBBlVDafFD4b2Rh2G7ft1GQ08o/edit?pli=1#slide=id.g10df88dd1ed_4_546
  
 
 Contents:
@@ -75,7 +76,14 @@ Contents:
   * [Payload](#payload)
   * [Component lifecycle](#component-lifecycle)
     + [Licefycle motivation](#licefycle-motivation)
-  * [Lifecycle usage](#lifecycle-usage)
+    + [Lifecycle usage](#lifecycle-usage)
+    + [Example use-cases](#example-use-cases)
+    + [React lifecycle](#react-lifecycle)
+    + [React component state and re-rendering](#react-component-state-and-re-rendering)
+    + [React simplification](#react-simplification)
+    + [React custom hooks](#react-custom-hooks)
+
+
 
 
 
@@ -1159,7 +1167,7 @@ Custom hooks are functions with names starting with use, and using other hooks (
 
 They must obey rules of hooks:  
 (1) always call (each render)  
-(2)call in the same order!
+(2) call in the same order!
 
 Typically hooks are called at the functional component start.
 
