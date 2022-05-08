@@ -1132,4 +1132,35 @@ When the model notifies, component state may change and component re-renders. It
 
 If the numberOfGuests does not change in the model (and the model notifies observers for some other reason, like adding a dish), setNumber will not lead to React re-render.
 
+### React simplification
+```javascript
+function ObserverPresenter(props){   
+	const [/*(a) ignore!*/, setNumber]=React.useState(/*(b) no value, see initialization below! */);
+	function observerACB(){ setNumber(props.model.numberOfGuests);}
+	function wasCreatedACB(){
+	  observerACB();    // (b) call observer when adding it, to initialize the state
+	  props.model.addObserver(observerACB);                                // 1. subscribe
+	  return function isTakenDownACB(){ props.model.removeObserver(observerACB);} // 2.unsubscribe
+	}
+	React.useEffect(wasCreatedACB, []);//  stricter: [props.model] but that never changes 
+		// the JSX code is the same as in any props.model (Vue, TW1, TW2) presenter:
+	return <MyView 	someProp={props.model.numberOfGuests}  
+					someEvent={function handleEventACB(e){model.setNumberOfGuests(x)}} />	
+}
+
+```
+
+a. Since the state variable name (formerly number) is not used in JSX (props.model.NumberOfGuests is used instead), it can be ignored at destructuring.
+b. Calling the observer when adding it allows setting the state without initializing it in React.useState. This is especially useful when the observer copies several state properties from Application State.
+c. The returned function can be used directly at its declaration.
+
+### React custom hooks
+Custom hooks are functions with names starting with use, and using other hooks (state, effect). 
+
+They must obey rules of hooks:  
+(1) always call (each render)  
+(2)call in the same order!
+
+Typically hooks are called at the functional component start.
+
 
