@@ -73,6 +73,10 @@ Contents:
 - [Observers](#observers)
   * [Useful functions](#useful-functions)
   * [Payload](#payload)
+  * [Component lifecycle](#component-lifecycle)
+    + [Licefycle motivation](#licefycle-motivation)
+  * [Lifecycle usage](#lifecycle-usage)
+
 
 
 
@@ -1073,4 +1077,18 @@ If an observer takes too long to address the notification (cb takes long), the o
 **Payload** is like an **event** fired by the Model (Observable, or Subject). 
 
 Most Observers can ignore the payload parameter (similar to a click event handler, it rarely needs the click_event object) but the Persistor observer (Firebase) needs it to understand in more detail what has changed to only save that change to the cloud.
+
+## Component lifecycle
+### Licefycle motivation
+An Observer component needs to: 
+1. Add itself as observer to the Model when the component is created.
+2. Remove itself as Model observer when the component is taken down.
+		-> to avoid state change change of components no longer displayed
+		-> to avoid memory leakes
+		
+## Lifecycle usage
+1. Let us know when the component has been created.
+2. Let us know when the component is taken down.
+
+
 
