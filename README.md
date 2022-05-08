@@ -1127,4 +1127,9 @@ At next renders (updates) the effect will not do anything.
 
 When the component is taken down, isTakenDownACB is invoked.
 
+### React component state and re-rendering
+When the model notifies, component state may change and component re-renders. It will not always change!
+
+If the numberOfGuests does not change in the model (and the model notifies observers for some other reason, like adding a dish), setNumber will not lead to React re-render.
+
 
