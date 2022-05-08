@@ -83,6 +83,7 @@ Contents:
     + [React component state and re-rendering](#react-component-state-and-re-rendering)
     + [React simplification](#react-simplification)
     + [React custom hooks](#react-custom-hooks)
+	+ [Hash Presenter](#hash-presenter)
 
 
 
@@ -1181,6 +1182,7 @@ b. Calling the observer when adding it allows setting the state without initiali
 c. The returned function can be used directly at its declaration.
 
 ### React custom hooks
+
 Custom hooks are functions with names starting with use, and using other hooks (state, effect). 
 
 They must obey rules of hooks:  
@@ -1189,4 +1191,20 @@ They must obey rules of hooks:
 
 Typically hooks are called at the functional component start.
 
+### Hash Presenter
 
+```javascript
+function HashPresenter(props){ // subscribe to browser-wide event (location.hash as "mini-model")
+	const [hashState, setHash]=React.useState(window.location.hash);
+	function hashListenerACB(){ setHash(window.location.hash);}
+	function wasCreatedACB(){  
+		window.addEventListener("hashchange", hashListenerACB);   // 1 subscribe
+		function tearDownACB(){ window.removeEventListener("hashchange", listener); } 
+		return tearDownACB;
+	}
+	React.useEffect(wasCreatedACB, []); 
+ 	return <span>{hashState}</span>;
+} 
+```
+
+We say that window.location.hash (or the model) is  **the source of truth**.
