@@ -72,6 +72,7 @@ Contents:
 - [Top level state react?](#top-level-state-react-)
 - [Observers](#observers)
   * [Useful functions](#useful-functions)
+  * [Payload](#payload)
 
 
 
@@ -1048,5 +1049,10 @@ If an error occurs in an observer, all subsequent observers will lose the notifi
 ```javascript
 try{ /*call obs */ }catch(err){console.error(err); }  
 ```
+If an observer takes too long to address the notification (cb takes long), the other observers will be delayed! 
 
+## Payload
+**Payload** is like an **event** fired by the Model (Observable, or Subject). 
+
+Most Observers can ignore the payload parameter (similar to a click event handler, it rarely needs the click_event object) but the Persistor observer (Firebase) needs it to understand in more detail what has changed to only save that change to the cloud.
 
