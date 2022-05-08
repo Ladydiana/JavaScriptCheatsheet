@@ -43,6 +43,7 @@ Contents:
 		* [fetch(..).then(ACB)....catch(EACB)](#fetchthenacbcatcheacb)
 		* [customEvent={ACB}](#customevent--acb-)
 		* [addObserver(ACB)](#addobserveracb)
+		* [React.useEffect(ACB, [expr1, e2])](#)
 - [Custom components](#custom-components)
 - [Inline Javascript](#inline-javascript)
 - [Create Random ID](#create-random-id)
@@ -610,6 +611,21 @@ function myFilter(array, tester){                   // no need for else after re
 | What is the role of the callback?   					| Update based on the latest data from the Subject = Observable = Model |
 | Example callback names                 				| myObserverACB |
 
+### React.useEffect(ACB, [expr1, e2])
+| Question 												| Answer |
+| -----------------------------------------------------	| ------ |
+| How to pass the callback?								| ``` React.useEffect(ACB, [expr1, e2])  ```|
+| Other params needed besides the callback? 			| Array of expressions |
+| What does React.useEffect(ACB, [expr1, e2]))  return?      | nothing  |
+| When does React.useEffect(ACB, [expr1, e2])  return?      | Immediately. Just makes a plan that when the component is rendered for the first time, ACB will be invoked. Also when expr1, expr2 change (if any are specified)|
+| Who calls the callback, and sends parameters?       	| React |
+| Role (and usual name?) of callback parameters      	| none |
+| What is the callback expected to return?       		| an ACB to be invoked when component taken down  or expr change again! |
+| When is the callback called?     						| At first render, and for [expr1, expr2] at every expr change |
+| Is the callback called once? Or repeatedly?       	| Once for [] repeatedly for [expr1, expr2] at every expr change |
+| What is the role of the callback?   					| Perform subscriptions or other one-time operations for []  react to change for  [e1, e2] |
+| Example callback names                 				| wasCreatedACB  for [] hasChangedACB  for [e1, e2] |
+
 ## Custom components
 **!!! ACB !!!**
 ```javascript
@@ -1159,7 +1175,9 @@ function ObserverPresenter(props){
 ```
 
 a. Since the state variable name (formerly number) is not used in JSX (props.model.NumberOfGuests is used instead), it can be ignored at destructuring.
+
 b. Calling the observer when adding it allows setting the state without initializing it in React.useState. This is especially useful when the observer copies several state properties from Application State.
+
 c. The returned function can be used directly at its declaration.
 
 ### React custom hooks
