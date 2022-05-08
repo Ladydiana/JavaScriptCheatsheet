@@ -1112,6 +1112,12 @@ function ObserverPresenter(props){
 		return isTakenDownACB;
 	}
 	React.useEffect(wasCreatedACB, []);//  stricter: [props.model] but that never changes 
+	
+	return <MyView 	someProp={props.model.numberOfGuests}  
+					someEvent={function handleEventACB(e){model.setNumberOfGuests(x)}}  />
+					
+	// someEvent needs a function. Calling only setNumberOfGuests  will lead to re-render of this component but the model will not find out about the change, nor will its Observers!
+
 }
 ```
 
