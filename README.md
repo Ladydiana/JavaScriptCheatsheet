@@ -1079,6 +1079,7 @@ If an observer takes too long to address the notification (cb takes long), the o
 Most Observers can ignore the payload parameter (similar to a click event handler, it rarely needs the click_event object) but the Persistor observer (Firebase) needs it to understand in more detail what has changed to only save that change to the cloud.
 
 ## Component lifecycle
+
 ### Licefycle motivation
 An Observer component needs to: 
 1. Add itself as observer to the Model when the component is created.
@@ -1086,9 +1087,38 @@ An Observer component needs to:
 		-> to avoid state change change of components no longer displayed
 		-> to avoid memory leakes
 		
-## Lifecycle usage
+### Lifecycle usage
 1. Let us know when the component has been created.
 2. Let us know when the component is taken down.
 
+### Example use-cases
+1. The component has been created. 
+- add the component as Observer to an Observable (e.g. Model)
+- subscribe to a browser-wide event (e.g. window "hashchange" event for navigation)
+- initiating a promise
+2. The component is being taken down (e.g. its parent does not want to render it any longer)
+- Remove the component as Observer to an Observable (e.g. Model)
+- Unsubscribe an event listener (though the browser usually takes care of this)
+
+### React lifecycle
+**subscribe at creation, unsubscribe at teardown**
+```javascript
+function ObserverPresenter(props){   
+	const [number, setNumber]=React.useState(props.model.numberOfGuests);
+	function observerACB(){ setNumber(props.model.numberOfGuests);}
+	function wasCreatedACB(){  
+		props.model.addObserver(observerACB);                                // 1. subscribe
+		function isTakenDownACB(){ props.model.removeObserver(observerACB);} // 2. unsubscribe
+		return isTakenDownACB;
+	}
+	React.useEffect(wasCreatedACB, []);//  stricter: [props.model] but that never changes 
+}
+```
+
+On first render (invocation of wasCreatedACB) wasCreatedACB will be invoked.
+
+At next renders (updates) the effect will not do anything.
+
+When the component is taken down, isTakenDownACB is invoked.
 
 
