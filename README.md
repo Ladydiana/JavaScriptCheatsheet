@@ -1043,6 +1043,24 @@ __________________________
 ## Useful functions 
 - addObserver(callback) -> add callback to observers array
 - removeObserver(callback) -> remove callback from the observers array, e.g. this.observers= this.observers.filter(..)  
+```javascript
+// 1. call the observer when it is added
+/* 1. read data from the model */
+model.addObserver(function myObserverACB(){  
+    /* 2. read latest data from the model */ ;
+});
+
+//If we are sure that addObserver calls the observer once at addition, the code is simpler:
+model.addObserver(function myObserverACB(){  
+    /* read data from the model */ ;
+});
+
+//2. return observer removal at addition
+function myObserverACB(){..}
+model.addObserver(myObserverACB);
+// Later in the code:
+model.removeObserver(myObserverACB);
+```
 - notifyObservers(payload) -> call all the callbacks in the array
 
 If an error occurs in an observer, all subsequent observers will lose the notification. This is why notifyObservers(payload) should be in a try catch block
