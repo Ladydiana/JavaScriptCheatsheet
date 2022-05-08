@@ -43,7 +43,7 @@ Contents:
 		* [fetch(..).then(ACB)....catch(EACB)](#fetchthenacbcatcheacb)
 		* [customEvent={ACB}](#customevent--acb-)
 		* [addObserver(ACB)](#addobserveracb)
-		* [React.useEffect(ACB, [expr1, e2])](#)
+		* [React.useEffect(ACB, [expr1, e2])](#reactuseeffectacb-expr1-e2)
 - [Custom components](#custom-components)
 - [Inline Javascript](#inline-javascript)
 - [Create Random ID](#create-random-id)
