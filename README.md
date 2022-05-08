@@ -71,6 +71,7 @@ Contents:
   * [Shallow React](#shallow-react)
 - [Top level state react?](#top-level-state-react-)
 - [Observers](#observers)
+  * [Useful functions](#useful-functions)
 
 
 
@@ -1026,7 +1027,8 @@ That means that the content of the Arrays and Objects in the React state should 
 If you want to change React state, you have to create new ones.
 
 # Top level state react?
-** !!! BAD IDEA !!! **
+**!!! BAD IDEA !!!**
+
 Setting the whole model as a state property  will not work because of the  React state: the model reference never changes, therefore no React re-render!
 
 When one of the state properties changes, the App will re-render, therefore all its children and their children will re-render.
@@ -1036,4 +1038,15 @@ This is why we have the Presenters observing the model (=> **Observer**). For th
 
 __________________________
 # Observers
+
+## Useful functions 
+- addObserver(callback) -> add callback to observers array
+- removeObserver(callback) -> remove callback from the observers array, e.g. this.observers= this.observers.filter(..)  
+- notifyObservers(payload) -> call all the callbacks in the array
+
+If an error occurs in an observer, all subsequent observers will lose the notification. This is why notifyObservers(payload) should be in a try catch block
+```javascript
+try{ /*call obs */ }catch(err){console.error(err); }  
+```
+
 
