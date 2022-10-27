@@ -84,6 +84,7 @@ Contents:
     + [React simplification](#react-simplification)
     + [React custom hooks](#react-custom-hooks)
 	+ [Hash Presenter](#hash-presenter)
+	+ [Derived component state](#derived-component-state)
 
 
 
@@ -1208,3 +1209,17 @@ function HashPresenter(props){ // subscribe to browser-wide event (location.hash
 ```
 
 We say that window.location.hash (or the model) is  **the source of truth**.
+
+### Derived component state
+
+__________________________
+# Persistor
+
+Is a Model observer, but it also "observes" on other changes coming from the cloud.
+
+Ex: Firebase
+
+
+
+---
+<a href="https://www.buymeacoffee.com/Ladyd1ana" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-blue.png" alt="If you enjoy my projects, please consider buying me a coffee" height="41" width="174"></a>
